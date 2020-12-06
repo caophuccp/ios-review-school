@@ -1,0 +1,11 @@
+6/12/2020
+# Nội dung họp:
+- Xây dựng giao diện app trên figma
+- Xây dựng luồn chạy app
+- Công nghệ sử dụng:
++ mobile app: iOS - swift
++ database: firebase
+# Phân chia:
+- Nhựt: hoàn thành figma.
+- Phúc, Nhựt, Phước: các giao diện đã phân trên figma
+- Phước: xây dựng database
