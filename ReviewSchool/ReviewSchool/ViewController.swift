@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameTextField: RoundTextField!
     @IBOutlet weak var passwordTextField: RoundTextField!
     @IBOutlet weak var forgotPasswordLabel: UILabel!
+    
+    let auth = Firebase.Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +36,26 @@ class ViewController: UIViewController {
         signUpSwitchButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        let tab = TabBarViewController()
-//        tab.modalPresentationStyle = .fullScreen
-//        self.present(tab, animated: true, completion: nil)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if auth.currentUser != nil {
+            goChat()
+        }
+    }
+    
     @IBAction func signInButtonClick(_ sender: Any) {
-        usernameTextField.hasError = true
+        auth.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { [weak self] (auth, err) in
+            if let _ = auth {
+                DispatchQueue.main.async {
+                    self?.goChat()
+                }
+            }
+        }
+    }
+    
+    func goChat(){
+        let tab = TabBarViewController()
+        tab.modalPresentationStyle = .fullScreen
+        self.present(tab, animated: true, completion: nil)
     }
 }

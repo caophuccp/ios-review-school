@@ -35,14 +35,12 @@ class ChatTabViewController: UIViewController {
     }
     
     var stop = true;
-    @IBAction func goChat(_ sender: Any) {
-        if stop {
-            indicatorView.startAnimating()
-            headerLabel.text = "Chúng tôi đang tìm kiếm bạn chat cho bạn"
-        } else {
-            indicatorView.stopAnimating()
-            headerLabel.text = ""
+    @IBAction func chatButtonClick(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ChatRoomViewController") else {
+            return
         }
-        stop.toggle()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
