@@ -18,7 +18,7 @@ class ChatRoomViewController: UIViewController {
     
     var isMessageEmpty = true
     
-    var messages = [MessageObject]()
+    var messages = [MessageObject.startedMessage()]
     
     let db = Firestore.firestore()
     let storageReference = Storage.storage().reference()
@@ -30,16 +30,10 @@ class ChatRoomViewController: UIViewController {
     let userAvatar = UIImage(named: "avt")
     let peerAvatar = UIImage(named: "avt")
     var messageCollection:CollectionReference?
-    var imagesCache = NSCache<NSString, UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        messageTableView.rowHeight = UITableView.automaticDimension
-        messageTableView.estimatedRowHeight = 100
-        messageTableView.delegate = self
-        messageTableView.dataSource = self
-        messageTableView.separatorStyle = .none
+        setupViews()
         
         if user.uid == "bfZeRPepF8QjmfttLuSrEXgSoq52" {
             peerID = "ewkWfiWdpZXB66brRNLgtkQi8XF2"
@@ -50,8 +44,31 @@ class ChatRoomViewController: UIViewController {
         } else {
             groupChatID = peerID + user.uid
         }
-        messageCollection = db.collection("chat").document("message").collection(groupChatID)
-        getData()
+        messageCollection = db.collection("chat").document("messages").collection(groupChatID)
+        
+//        delete(collection: messageCollection!)
+//        deleteCollection(collection: messageCollection)
+        startChat()
+        registerForKeyboardNotifications()
+    }
+    
+    func deleteCollection(collection: CollectionReference) {
+        collection.getDocuments { [weak self] (docset, error) in
+            let batch = collection.firestore.batch()
+            docset?.documents.forEach { batch.deleteDocument($0.reference) }
+            batch.commit()
+            self?.startChat()
+        }
+    }
+    
+    func setupViews(){
+        messageTableView.rowHeight = UITableView.automaticDimension
+        messageTableView.estimatedRowHeight = 100
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
+        messageTableView.separatorStyle = .none
+        messageTableView.transform = CGAffineTransform(rotationAngle: -.pi)
+        
         
         inputTextView.delegate = self
         inputTextView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -63,8 +80,6 @@ class ChatRoomViewController: UIViewController {
         inputTextView.text = "Write a message..."
         inputTextView.textColor = .darkGray
         
-        registerForKeyboardNotifications()
-        
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(indicatorView)
         
@@ -73,16 +88,17 @@ class ChatRoomViewController: UIViewController {
             indicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
     deinit {
         messageListener?.remove()
         deregisterFromKeyboardNotifications()
     }
     
+    func startChat(){
+        getData()
+    }
+    
     func getData(){
-//        LocalData.messages { [weak self] (result) in
-//            self?.messages = result
-//            self?.messageTableView.reloadData()
-//        }
         messageListener = messageCollection?.addSnapshotListener { [weak self] (querySnapshot, error) in
             guard let sSelf = self else {
                 return
@@ -94,23 +110,19 @@ class ChatRoomViewController: UIViewController {
             guard let documents = querySnapshot?.documents else {
                 return
             }
-//            var messages = [MessageObject]()
-//            documents.compactMap(<#T##transform: (QueryDocumentSnapshot) throws -> ElementOfResult?##(QueryDocumentSnapshot) throws -> ElementOfResult?#>)
-//            for document in documents {
-//                if let message = try? document.data(as: MessageObject.self) {
-//                    messages.append(message)
-//                }
-//            }
-            for document in documents {
-                if let message = try? document.data(as: MessageObject.self) {
-                    if !sSelf.messages.contains(where: {$0.id == message.id}) {
-                        sSelf.messages.append(message)
-                    }
-                }
-            }
-            sSelf.messages.sort(by: {$0.timestamp < $1.timestamp})
+            
+            sSelf.messages = documents.compactMap({try? $0.data(as: MessageObject.self)})
+            sSelf.messages.sort(by: {$0.timestamp > $1.timestamp})
             sSelf.messageTableView.reloadData()
-            sSelf.messageTableView.scrollToBottom()
+//            sSelf.messageTableView.scrollToBottom()
+            sSelf.messageTableView.scrollToTop()
+        }
+    }
+    func sendMessage(message:MessageObject) {
+        do {
+            let _ = try messageCollection?.addDocument(from: message)
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
@@ -134,12 +146,8 @@ class ChatRoomViewController: UIViewController {
         }
     }
     
-    func sendMessage(message:MessageObject) {
-        do {
-            let _ = try messageCollection?.addDocument(from: message)
-        } catch {
-            print(error.localizedDescription)
-        }
+    @IBAction func backButtonClick(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -155,15 +163,20 @@ extension ChatRoomViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID:String
         let message = messages[indexPath.row]
-        if message.contentType == .text {
-            cellID = message.ownerID == peerID ? "LeftTextCellID" : "RightTextCellID"
+        if message.ownerID == "system" {
+            cellID = "SystemCellID"
         } else {
-            cellID = message.ownerID == peerID ? "LeftImageCellID" : "RightImageCellID"
+            if message.contentType == .text {
+                cellID = message.ownerID == peerID ? "LeftTextCellID" : "RightTextCellID"
+            } else {
+                cellID = message.ownerID == peerID ? "LeftImageCellID" : "RightImageCellID"
+            }
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as! MessageViewCell
         cell.selectionStyle = .none
         let avatar = message.ownerID == peerID ? peerAvatar : userAvatar
         cell.setup(message: messages[indexPath.row], avatar: avatar)
+        cell.transform = CGAffineTransform(rotationAngle: .pi)
         return cell
     }
     
@@ -188,9 +201,10 @@ extension ChatRoomViewController: UITextViewDelegate {
         guard let info = notification.userInfo else {
             return
         }
-        messageTableView.scrollToBottom()
+//        messageTableView.scrollToBottom()
+        messageTableView.scrollToTop()
         let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
-        inputViewBottomConstraint.constant = -keyboardSize.height
+        inputViewBottomConstraint.constant = keyboardSize.height
         UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut) {
             self.view.layoutIfNeeded()
         } completion: { (_) in
@@ -198,7 +212,7 @@ extension ChatRoomViewController: UITextViewDelegate {
         }
     }
     
-
+    
     @objc func keyboardWillHide(_ notification: NSNotification) {
         inputViewBottomConstraint.constant = 5
         UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut) {
@@ -207,7 +221,7 @@ extension ChatRoomViewController: UITextViewDelegate {
             
         }
     }
-
+    
     func textViewDidChange(_ textView: UITextView) {
         isMessageEmpty = false
         let heightConstant = inputTVHeightContraint.constant
@@ -270,7 +284,7 @@ extension ChatRoomViewController: UIImagePickerControllerDelegate, UINavigationC
         message.content = url.absoluteString
         message.contentType = .photo
         message.ownerID = user.uid
-    
+        
         sendMessage(message: message)
     }
 }

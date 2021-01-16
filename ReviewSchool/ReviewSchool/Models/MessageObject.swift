@@ -53,4 +53,12 @@ extension MessageObject {
         case unknown = 2
     }
     
+    static func startedMessage() -> MessageObject{
+        let msg = MessageObject()
+        msg.contentType = .text
+        msg.content = "Cuộc trò chuyện đã được bắt đầu"
+        msg.ownerID = "system"
+        msg.id = UUID().uuidString
+        return msg
+    }
 }

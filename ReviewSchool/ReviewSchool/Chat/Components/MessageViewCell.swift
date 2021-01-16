@@ -8,6 +8,7 @@
 import UIKit
 
 class MessageViewCell:UITableViewCell {
+    static var imagesCache = NSCache<NSString, UIImage>()
     func setup(message:MessageObject, avatar:UIImage?) {
         
     }
@@ -42,7 +43,7 @@ class ImageMessageViewCell:MessageViewCell {
     
     override func setup(message:MessageObject, avatar:UIImage?){
         self.msgImageView.contentMode = .scaleAspectFit
-        self.msgImageView.backgroundColor = .systemRed
+//        self.msgImageView.backgroundColor = .systemRed
         self.msgImageView.layer.masksToBounds = true
         self.msgImageView.layer.cornerRadius = 10
         self.avatarImageView?.layer.masksToBounds = true
@@ -52,24 +53,36 @@ class ImageMessageViewCell:MessageViewCell {
         guard let urlStr = message.content, let url = URL(string: urlStr) else {
             return
         }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            if let data = data, let image = UIImage(data: data) {
+        NetworkImage.shared.download(url: url) { [weak self](image) in
+            if let image = image {
                 DispatchQueue.main.async{
                     self?.setImage(image: image)
                 }
             }
-        }.resume()
+        }
     }
     
     func setImage(image:UIImage) {
-//        if imageAspectConstraint != nil {
-//            let aspect = image.size.width/image.size.height
-//            imageAspectConstraint?.isActive = false
-//            imageAspectConstraint = self.msgImageView.widthAnchor.constraint(equalTo: msgImageView.heightAnchor, multiplier: aspect)
-//            imageAspectConstraint?.isActive = true
-//        }
+        if imageAspectConstraint != nil {
+            let aspect = image.size.width/image.size.height
+            imageAspectConstraint?.isActive = false
+            imageAspectConstraint = self.msgImageView.widthAnchor.constraint(equalTo: msgImageView.heightAnchor, multiplier: aspect)
+            imageAspectConstraint?.priority = UILayoutPriority(rawValue: 999)
+            imageAspectConstraint?.isActive = true
+        }
         self.msgImageView.image = image
-//        self.layoutIfNeeded()
+        self.layoutIfNeeded()
+    }
+}
+
+class SystemMessageViewCell:MessageViewCell {
+    
+    @IBOutlet weak var textView: UITextView!
+    
+    override func setup(message: MessageObject, avatar: UIImage?) {
+        textView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        textView.layer.masksToBounds = true
+        textView.layer.cornerRadius = 10
+        textView.text = message.content
     }
 }

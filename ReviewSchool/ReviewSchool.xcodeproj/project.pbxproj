@@ -23,6 +23,7 @@
 		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
 		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
 		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
+		65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F97D4325B329F500F4FDE5 /* NetworkImage.swift */; };
 		C1BC8AC1FCCE92AF3F94E027 /* Pods_ReviewSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961201525601E758EF330F0B /* Pods_ReviewSchool.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
 		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		65F97D4325B329F500F4FDE5 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		961201525601E758EF330F0B /* Pods_ReviewSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReviewSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3581D35E0DA2B38A015B25 /* Pods-ReviewSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewSchool.release.xcconfig"; path = "Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 		650ADF2825B1BF9F00C8442C /* ReviewSchool */ = {
 			isa = PBXGroup;
 			children = (
+				65F97D4225B329E500F4FDE5 /* Utils */,
 				653AACED25B2E2AB000C289A /* Models */,
 				653AACB225B2CC09000C289A /* Extensions */,
 				653AACAA25B2C09E000C289A /* Components */,
@@ -167,6 +170,14 @@
 				65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		65F97D4225B329E500F4FDE5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				65F97D4325B329F500F4FDE5 /* NetworkImage.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 			files = (
 				653AAD0825B2E338000C289A /* MessageViewCell.swift in Sources */,
 				65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */,
+				65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* ViewController.swift in Sources */,
 				653AACEF25B2E2B9000C289A /* MessageObject.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
