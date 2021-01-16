@@ -20,6 +20,7 @@
 		653AAD0825B2E338000C289A /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0725B2E338000C289A /* MessageViewCell.swift */; };
 		653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */; };
 		653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */; };
+		657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C293A25B33988001799FB /* UserProfileViewController.swift */; };
 		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
 		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
 		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
@@ -44,6 +45,7 @@
 		653AAD0725B2E338000C289A /* MessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
 		653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		657C293A25B33988001799FB /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
 		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */,
+				657C293A25B33988001799FB /* UserProfileViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
 				653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */,
 				653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */,
+				657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */,
 				65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */,
 				653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */,
 				650ADF2C25B1BF9F00C8442C /* SceneDelegate.swift in Sources */,

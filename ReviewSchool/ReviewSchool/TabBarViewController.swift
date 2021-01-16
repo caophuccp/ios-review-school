@@ -28,7 +28,11 @@ class TabBarViewController:UITabBarController {
         
         tabTwo.tabBarItem = tabTwoBarItem2
         
+        let tab3 = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "UserProfileView")
+        let tabTwoBarItem3 = UITabBarItem(title: "tab3", image: UIImage(named: "chat-icon"), tag: 1)
+        tab3.tabBarItem = tabTwoBarItem3
+        
         self.tabBar.backgroundColor = #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1)
-        self.viewControllers = [tabTwo, tabOne]
+        self.viewControllers = [tabTwo, tabOne, tab3]
     }
 }
