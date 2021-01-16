@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chat Tab View Controller-->
+        <scene sceneID="7T6-lt-epk">
+            <objects>
+                <viewController storyboardIdentifier="ChatTabView" id="jBy-CE-BUM" customClass="ChatTabViewController" customModule="ReviewSchool" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RxT-Ld-ROc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-hX-CeW">
+                                <rect key="frame" x="62" y="84" width="290" height="250"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-3n-avL">
+                                        <rect key="frame" x="0.0" y="55" width="290" height="195"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTM-5Q-vGL">
+                                        <rect key="frame" x="15" y="5" width="260" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ogz-oM-rey"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="250" id="1jt-Bb-Vz5"/>
+                                    <constraint firstItem="E8t-3n-avL" firstAttribute="top" secondItem="HTM-5Q-vGL" secondAttribute="bottom" id="3Rp-AH-MTD"/>
+                                    <constraint firstAttribute="bottom" secondItem="E8t-3n-avL" secondAttribute="bottom" id="OAy-ue-Ger"/>
+                                    <constraint firstItem="E8t-3n-avL" firstAttribute="leading" secondItem="HvH-hX-CeW" secondAttribute="leading" id="Peq-1O-mug"/>
+                                    <constraint firstAttribute="trailing" secondItem="E8t-3n-avL" secondAttribute="trailing" id="ViH-Ih-LhW"/>
+                                    <constraint firstAttribute="trailing" secondItem="HTM-5Q-vGL" secondAttribute="trailing" constant="15" id="mbN-zm-Cwm"/>
+                                    <constraint firstItem="HTM-5Q-vGL" firstAttribute="top" secondItem="HvH-hX-CeW" secondAttribute="top" constant="5" id="vj2-dC-UtA"/>
+                                    <constraint firstItem="HTM-5Q-vGL" firstAttribute="leading" secondItem="HvH-hX-CeW" secondAttribute="leading" constant="15" id="wLF-yY-yoD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgb-rb-gWw">
+                                <rect key="frame" x="62" y="641" width="290" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-icon-b" translatesAutoresizingMaskIntoConstraints="NO" id="GYk-Se-XPp">
+                                        <rect key="frame" x="15" y="15" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GYk-Se-XPp" secondAttribute="height" multiplier="1:1" id="AN0-gZ-Sq4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Cj-jr-hq8">
+                                        <rect key="frame" x="66" y="5" width="219" height="70"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="6Cj-jr-hq8" firstAttribute="top" secondItem="Zgb-rb-gWw" secondAttribute="top" constant="5" id="2lB-IR-fTQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Cj-jr-hq8" secondAttribute="trailing" constant="5" id="5MW-7z-47J"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Cj-jr-hq8" secondAttribute="bottom" constant="5" id="Wgb-4k-sdi"/>
+                                    <constraint firstAttribute="height" constant="80" id="bQT-ds-bcU"/>
+                                    <constraint firstItem="6Cj-jr-hq8" firstAttribute="leading" secondItem="GYk-Se-XPp" secondAttribute="trailing" constant="1" id="g5o-GU-tIR"/>
+                                    <constraint firstAttribute="bottom" secondItem="GYk-Se-XPp" secondAttribute="bottom" constant="15" id="k34-Gm-eeW"/>
+                                    <constraint firstItem="GYk-Se-XPp" firstAttribute="leading" secondItem="Zgb-rb-gWw" secondAttribute="leading" constant="15" id="q3W-Id-T11"/>
+                                    <constraint firstItem="GYk-Se-XPp" firstAttribute="top" secondItem="Zgb-rb-gWw" secondAttribute="top" constant="15" id="uND-pX-h1L"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsi-G8-xGf">
+                                <rect key="frame" x="62" y="731" width="290" height="45"/>
+                                <color key="backgroundColor" red="0.5" green="0.8196" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="TOn-PZ-MKZ"/>
+                                </constraints>
+                                <state key="normal" title="Vào chat ngay">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="goChat:" destination="jBy-CE-BUM" eventType="touchUpInside" id="p1K-Pi-sDA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oze-zF-YQ2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HvH-hX-CeW" firstAttribute="top" secondItem="oze-zF-YQ2" secondAttribute="top" constant="40" id="7cK-At-tFb"/>
+                            <constraint firstItem="Zgb-rb-gWw" firstAttribute="width" secondItem="HvH-hX-CeW" secondAttribute="width" id="RXv-Bg-Hwu"/>
+                            <constraint firstItem="dsi-G8-xGf" firstAttribute="centerX" secondItem="oze-zF-YQ2" secondAttribute="centerX" id="Ss3-eL-jiA"/>
+                            <constraint firstItem="Zgb-rb-gWw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HvH-hX-CeW" secondAttribute="bottom" constant="15" id="asQ-PF-egG"/>
+                            <constraint firstItem="dsi-G8-xGf" firstAttribute="width" secondItem="HvH-hX-CeW" secondAttribute="width" id="ifi-fA-TcF"/>
+                            <constraint firstItem="HvH-hX-CeW" firstAttribute="centerX" secondItem="oze-zF-YQ2" secondAttribute="centerX" id="pA6-kC-gdB"/>
+                            <constraint firstItem="oze-zF-YQ2" firstAttribute="bottom" secondItem="dsi-G8-xGf" secondAttribute="bottom" multiplier="10:9" id="w1v-k5-XTa"/>
+                            <constraint firstItem="HvH-hX-CeW" firstAttribute="width" secondItem="oze-zF-YQ2" secondAttribute="width" multiplier="0.7" priority="999" id="xdd-lm-GmA"/>
+                            <constraint firstItem="dsi-G8-xGf" firstAttribute="top" secondItem="Zgb-rb-gWw" secondAttribute="bottom" constant="10" id="zLN-rg-Fx3"/>
+                            <constraint firstItem="Zgb-rb-gWw" firstAttribute="centerX" secondItem="oze-zF-YQ2" secondAttribute="centerX" id="zp7-sd-61H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goButton" destination="dsi-G8-xGf" id="dEd-44-Ef4"/>
+                        <outlet property="headerLabel" destination="HTM-5Q-vGL" id="N3y-Ir-gk1"/>
+                        <outlet property="headerView" destination="HvH-hX-CeW" id="frN-Xo-780"/>
+                        <outlet property="indicatorView" destination="E8t-3n-avL" id="j2e-Mj-dCs"/>
+                        <outlet property="messageTextView" destination="6Cj-jr-hq8" id="YUX-93-CC9"/>
+                        <outlet property="messageView" destination="Zgb-rb-gWw" id="mgg-2X-Ziu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dh-TC-M1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281.15942028985512" y="-65.625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chat-icon-b" width="25.5" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

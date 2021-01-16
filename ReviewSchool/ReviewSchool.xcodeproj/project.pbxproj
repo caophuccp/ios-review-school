@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,12 @@
 		650ADF3125B1BF9F00C8442C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650ADF2F25B1BF9F00C8442C /* Main.storyboard */; };
 		650ADF3325B1BFA000C8442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650ADF3225B1BFA000C8442C /* Assets.xcassets */; };
 		650ADF3625B1BFA000C8442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650ADF3425B1BFA000C8442C /* LaunchScreen.storyboard */; };
+		653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACAF25B2CB00000C289A /* RoundTextField.swift */; };
+		653AACB425B2CC1F000C289A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACB325B2CC1F000C289A /* UIViewExtension.swift */; };
+		653AACB825B2CFF6000C289A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653AACB725B2CFF6000C289A /* GoogleService-Info.plist */; };
+		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
+		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
+		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
 		C1BC8AC1FCCE92AF3F94E027 /* Pods_ReviewSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961201525601E758EF330F0B /* Pods_ReviewSchool.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +32,12 @@
 		650ADF3225B1BFA000C8442C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		650ADF3525B1BFA000C8442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		650ADF3725B1BFA000C8442C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		653AACAF25B2CB00000C289A /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		653AACB325B2CC1F000C289A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		653AACB725B2CFF6000C289A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
+		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		961201525601E758EF330F0B /* Pods_ReviewSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReviewSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3581D35E0DA2B38A015B25 /* Pods-ReviewSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewSchool.release.xcconfig"; path = "Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,15 +92,45 @@
 		650ADF2825B1BF9F00C8442C /* ReviewSchool */ = {
 			isa = PBXGroup;
 			children = (
+				653AACB225B2CC09000C289A /* Extensions */,
+				653AACAA25B2C09E000C289A /* Components */,
+				65D0AF8125B2881000FA1E81 /* Chat */,
 				650ADF2925B1BF9F00C8442C /* AppDelegate.swift */,
 				650ADF2B25B1BF9F00C8442C /* SceneDelegate.swift */,
 				650ADF2D25B1BF9F00C8442C /* ViewController.swift */,
+				65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */,
 				650ADF2F25B1BF9F00C8442C /* Main.storyboard */,
 				650ADF3225B1BFA000C8442C /* Assets.xcassets */,
 				650ADF3425B1BFA000C8442C /* LaunchScreen.storyboard */,
 				650ADF3725B1BFA000C8442C /* Info.plist */,
+				653AACB725B2CFF6000C289A /* GoogleService-Info.plist */,
 			);
 			path = ReviewSchool;
+			sourceTree = "<group>";
+		};
+		653AACAA25B2C09E000C289A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				653AACAF25B2CB00000C289A /* RoundTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		653AACB225B2CC09000C289A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				653AACB325B2CC1F000C289A /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		65D0AF8125B2881000FA1E81 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */,
+				65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,7 +144,6 @@
 				650ADF2225B1BF9F00C8442C /* Sources */,
 				650ADF2325B1BF9F00C8442C /* Frameworks */,
 				650ADF2425B1BF9F00C8442C /* Resources */,
-				BBDFD6E40A1C6B931B4FC36B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +193,8 @@
 			files = (
 				650ADF3625B1BFA000C8442C /* LaunchScreen.storyboard in Resources */,
 				650ADF3325B1BFA000C8442C /* Assets.xcassets in Resources */,
+				653AACB825B2CFF6000C289A /* GoogleService-Info.plist in Resources */,
+				65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */,
 				650ADF3125B1BF9F00C8442C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,23 +224,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BBDFD6E40A1C6B931B4FC36B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -205,9 +231,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* ViewController.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
+				653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */,
+				65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */,
 				650ADF2C25B1BF9F00C8442C /* SceneDelegate.swift in Sources */,
+				653AACB425B2CC1F000C289A /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
