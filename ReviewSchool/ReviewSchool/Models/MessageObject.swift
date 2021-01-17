@@ -9,11 +9,25 @@ import Foundation
 import FirebaseFirestoreSwift
 
 class MessageObject: Codable {
-    @DocumentID var id = UUID().uuidString
+    var id: String
     var content: String?
-    var contentType = ContentType.unknown
-    var timestamp = Int(Date().timeIntervalSince1970)
+    var contentType: ContentType
+    var timestamp: Int
     var ownerID: String?
+    
+    init() {
+        self.id = UUID().uuidString
+        contentType = .unknown
+        timestamp = Int((Date().timeIntervalSince1970))
+    }
+    
+    init(content:String?, type:ContentType, ownerID: String?) {
+        self.id = UUID().uuidString
+        self.content = content
+        self.contentType = type
+        self.ownerID = ownerID
+        self.timestamp = Int((Date().timeIntervalSince1970))
+    }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -24,16 +38,14 @@ class MessageObject: Codable {
         try container.encodeIfPresent(content, forKey: .content)
     }
     
-    public required convenience init(from decoder: Decoder) throws {
-        self.init()
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey: .id)
-        timestamp = try container.decodeIfPresent(Int.self, forKey: .timestamp) ?? Int(Date().timeIntervalSince1970)
-        ownerID = try container.decodeIfPresent(String.self, forKey: .ownerID)
-        content = try container.decodeIfPresent(String.self, forKey: .content)
-        if let contentTypeValue = try container.decodeIfPresent(Int.self, forKey: .contentType) {
-            contentType = ContentType(rawValue: contentTypeValue) ?? ContentType.unknown
-        }
+        self.id = try container.decode(String.self, forKey: .id)
+        self.timestamp = try container.decode(Int.self, forKey: .timestamp)
+        self.ownerID = try container.decodeIfPresent(String.self, forKey: .ownerID)
+        self.content = try container.decodeIfPresent(String.self, forKey: .content)
+        let contentTypeValue = try container.decode(Int.self, forKey: .contentType)
+        self.contentType = ContentType(rawValue: contentTypeValue) ?? ContentType.unknown
     }
 }
 
@@ -54,11 +66,7 @@ extension MessageObject {
     }
     
     static func startedMessage() -> MessageObject{
-        let msg = MessageObject()
-        msg.contentType = .text
-        msg.content = "Cuộc trò chuyện đã được bắt đầu"
-        msg.ownerID = "system"
-        msg.id = UUID().uuidString
+        let msg = MessageObject(content: "Cuộc trò chuyện đã được bắt đầu", type: .text, ownerID: "system")
         return msg
     }
 }

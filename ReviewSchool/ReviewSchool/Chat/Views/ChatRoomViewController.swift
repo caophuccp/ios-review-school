@@ -22,7 +22,7 @@ class ChatRoomViewController: UIViewController {
     
     let db = Firestore.firestore()
     let storageReference = Storage.storage().reference()
-    let user = Auth.auth().currentUser!
+    let user = Auth.shared.currentUser!
     var peerID = "bfZeRPepF8QjmfttLuSrEXgSoq52"
     var groupChatID = ""
     var messageListener:ListenerRegistration?
@@ -264,22 +264,18 @@ extension ChatRoomViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
     func sendImage(imageURL:URL, imageSize:CGSize){
-        print("Send Image: \(imageURL)")
-        let imageRef = storageReference.child("images").child(UUID().uuidString)
-        let _ = imageRef.putFile(from: imageURL, metadata: nil) { [weak self](metadata, error) in
+        FirebaseStorage.shared.putFile(imageURL: imageURL) { [weak self](url, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
-            imageRef.downloadURL { (url, err) in
-                if let url = url {
-                    self?.sendImage(url: url, size: imageSize)
-                }
+            if let url = url {
+                self?.sendImage(url: url)
             }
         }
     }
     
-    func sendImage(url:URL, size:CGSize) {
+    func sendImage(url:URL) {
         let message = MessageObject()
         message.content = url.absoluteString
         message.contentType = .photo

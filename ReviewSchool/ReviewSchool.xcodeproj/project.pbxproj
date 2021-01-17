@@ -13,6 +13,8 @@
 		650ADF3125B1BF9F00C8442C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650ADF2F25B1BF9F00C8442C /* Main.storyboard */; };
 		650ADF3325B1BFA000C8442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650ADF3225B1BFA000C8442C /* Assets.xcassets */; };
 		650ADF3625B1BFA000C8442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650ADF3425B1BFA000C8442C /* LaunchScreen.storyboard */; };
+		65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65301BA025B4390500707F1B /* FirObjectModel.swift */; };
+		65301BA525B43EC500707F1B /* SchoolPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65301BA425B43EC500707F1B /* SchoolPickerViewController.swift */; };
 		653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACAF25B2CB00000C289A /* RoundTextField.swift */; };
 		653AACB425B2CC1F000C289A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACB325B2CC1F000C289A /* UIViewExtension.swift */; };
 		653AACE725B2E1CF000C289A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653AACE625B2E1CF000C289A /* GoogleService-Info.plist */; };
@@ -21,6 +23,10 @@
 		653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */; };
 		653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */; };
 		657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C293A25B33988001799FB /* UserProfileViewController.swift */; };
+		657C6D1525B404E5008245A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1425B404E5008245A6 /* User.swift */; };
+		657C6D1825B40DBA008245A6 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1725B40DBA008245A6 /* School.swift */; };
+		657C6D1B25B41187008245A6 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1A25B41187008245A6 /* Auth.swift */; };
+		657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */; };
 		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
 		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
 		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
@@ -38,6 +44,8 @@
 		650ADF3225B1BFA000C8442C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		650ADF3525B1BFA000C8442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		650ADF3725B1BFA000C8442C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65301BA025B4390500707F1B /* FirObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirObjectModel.swift; sourceTree = "<group>"; };
+		65301BA425B43EC500707F1B /* SchoolPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPickerViewController.swift; sourceTree = "<group>"; };
 		653AACAF25B2CB00000C289A /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		653AACB325B2CC1F000C289A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		653AACE625B2E1CF000C289A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -46,6 +54,10 @@
 		653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		657C293A25B33988001799FB /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		657C6D1425B404E5008245A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		657C6D1725B40DBA008245A6 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		657C6D1A25B41187008245A6 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
 		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
 		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				653AACEE25B2E2B9000C289A /* MessageObject.swift */,
+				657C6D1425B404E5008245A6 /* User.swift */,
+				657C6D1725B40DBA008245A6 /* School.swift */,
+				65301BA025B4390500707F1B /* FirObjectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +175,7 @@
 			children = (
 				653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */,
 				657C293A25B33988001799FB /* UserProfileViewController.swift */,
+				65301BA425B43EC500707F1B /* SchoolPickerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				65F97D4325B329F500F4FDE5 /* NetworkImage.swift */,
+				657C6D1A25B41187008245A6 /* Auth.swift */,
+				657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -304,13 +322,19 @@
 				65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* ViewController.swift in Sources */,
 				653AACEF25B2E2B9000C289A /* MessageObject.swift in Sources */,
+				657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
+				657C6D1525B404E5008245A6 /* User.swift in Sources */,
 				653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */,
 				653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */,
 				657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */,
 				65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */,
+				65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */,
+				65301BA525B43EC500707F1B /* SchoolPickerViewController.swift in Sources */,
+				657C6D1B25B41187008245A6 /* Auth.swift in Sources */,
 				653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */,
 				650ADF2C25B1BF9F00C8442C /* SceneDelegate.swift in Sources */,
+				657C6D1825B40DBA008245A6 /* School.swift in Sources */,
 				653AACB425B2CC1F000C289A /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
