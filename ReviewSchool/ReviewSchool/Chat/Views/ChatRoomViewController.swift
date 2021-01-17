@@ -22,7 +22,7 @@ class ChatRoomViewController: UIViewController {
     
     let db = Firestore.firestore()
     let storageReference = Storage.storage().reference()
-    let user = Auth.auth().currentUser!
+    let user = Auth.shared.currentUser!
     var peerID = "bfZeRPepF8QjmfttLuSrEXgSoq52"
     var groupChatID = ""
     var messageListener:ListenerRegistration?
