@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: RoundTextField!
     @IBOutlet weak var forgotPasswordLabel: UILabel!
     
-    let auth = Firebase.Auth.auth()
+    let auth = Auth.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +38,17 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if auth.currentUser != nil {
-            goChat()
+        auth.checkAuthState {[weak self] user in
+            if user != nil {
+                DispatchQueue.main.async {
+                    self?.goChat()
+                }
+            }
         }
     }
     
     @IBAction func signInButtonClick(_ sender: Any) {
-        auth.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { [weak self] (auth, err) in
+        auth.signIn(email: usernameTextField.text!, password: passwordTextField.text!) { [weak self] (auth, err) in
             if let _ = auth {
                 DispatchQueue.main.async {
                     self?.goChat()
