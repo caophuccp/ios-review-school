@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-hX-CeW">
                                 <rect key="frame" x="62" y="84" width="290" height="250"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-3n-avL">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-3n-avL">
                                         <rect key="frame" x="0.0" y="55" width="290" height="195"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTM-5Q-vGL">
@@ -362,9 +362,13 @@ Hãy tham gia chat</string>
                                 <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nz9-do-t86">
-                                        <rect key="frame" x="15" y="16.5" width="14.5" height="22"/>
+                                        <rect key="frame" x="15" y="17.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="mPm-bb-qQd"/>
+                                            <constraint firstAttribute="height" constant="20" id="wz9-tp-cP2"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" image="chevron.backward" catalog="system">
+                                        <state key="normal" image="backward-arrow">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>
                                         <connections>
@@ -373,8 +377,8 @@ Hãy tham gia chat</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8B-U1-kdW">
-                                        <rect key="frame" x="34.5" y="12" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="40" y="13" width="34" height="30"/>
+                                        <state key="normal" title="Back"/>
                                         <connections>
                                             <action selector="backButtonClick:" destination="sFQ-mj-ewc" eventType="touchUpInside" id="fZK-Dk-9kg"/>
                                         </connections>
@@ -429,9 +433,9 @@ Hãy tham gia chat</string>
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fac-F8-vcv" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="820"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="895"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo 1" translatesAutoresizingMaskIntoConstraints="NO" id="9i4-yg-T03">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="9i4-yg-T03">
                                                 <rect key="frame" x="147" y="30" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="LCM-a8-FFM"/>
@@ -596,10 +600,24 @@ Hãy tham gia chat</string>
                                                     <action selector="changeUsernameButtonClick:" destination="V1I-he-o8B" eventType="touchUpInside" id="g25-Bn-Npa"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdn-55-Vfu" userLabel="logout">
+                                                <rect key="frame" x="77.5" y="820" width="259" height="45"/>
+                                                <color key="backgroundColor" red="0.5" green="0.8196" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="PEx-SX-WnY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Đăng xuất">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeUsernameButtonClick:" destination="V1I-he-o8B" eventType="touchUpInside" id="Jtc-AC-JbN"/>
+                                                    <action selector="logoutButtonClick:" destination="V1I-he-o8B" eventType="touchUpInside" id="zrm-Sm-5gW"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ySC-QL-icp" secondAttribute="bottom" constant="30" id="2aZ-v8-rW9"/>
                                             <constraint firstItem="Am3-8W-tzq" firstAttribute="width" secondItem="fac-F8-vcv" secondAttribute="width" multiplier="0.65" id="8ke-38-w9c"/>
                                             <constraint firstItem="ySC-QL-icp" firstAttribute="width" secondItem="Bnb-jh-H12" secondAttribute="width" id="9FV-Xh-37l"/>
                                             <constraint firstAttribute="trailing" secondItem="9W5-DV-yZB" secondAttribute="trailing" constant="30" id="AbH-w0-w1h"/>
@@ -609,8 +627,10 @@ Hãy tham gia chat</string>
                                             <constraint firstItem="4iT-SU-1nr" firstAttribute="leading" secondItem="fac-F8-vcv" secondAttribute="leading" constant="30" id="FfV-LU-iHm"/>
                                             <constraint firstItem="Cv4-OJ-0Az" firstAttribute="centerX" secondItem="fac-F8-vcv" secondAttribute="centerX" id="IfB-nd-eKa"/>
                                             <constraint firstItem="Am3-8W-tzq" firstAttribute="top" secondItem="4iT-SU-1nr" secondAttribute="bottom" constant="15" id="Jha-Z8-oIi"/>
+                                            <constraint firstItem="Fdn-55-Vfu" firstAttribute="width" secondItem="ySC-QL-icp" secondAttribute="width" id="NfR-0F-ZEC"/>
                                             <constraint firstItem="4iT-SU-1nr" firstAttribute="top" secondItem="aLp-8H-5gD" secondAttribute="bottom" constant="30" id="P3B-cp-8SR"/>
                                             <constraint firstItem="9W5-DV-yZB" firstAttribute="trailing" secondItem="zMr-ci-reD" secondAttribute="trailing" constant="15" id="PAc-Jo-7O2"/>
+                                            <constraint firstItem="Fdn-55-Vfu" firstAttribute="centerX" secondItem="fac-F8-vcv" secondAttribute="centerX" id="PG0-1w-Ofw"/>
                                             <constraint firstItem="aLp-8H-5gD" firstAttribute="width" secondItem="zMr-ci-reD" secondAttribute="width" id="Tb8-2P-wiG"/>
                                             <constraint firstItem="Bnb-jh-H12" firstAttribute="centerX" secondItem="fac-F8-vcv" secondAttribute="centerX" id="VIM-RM-csl"/>
                                             <constraint firstItem="ySC-QL-icp" firstAttribute="top" secondItem="Bnb-jh-H12" secondAttribute="bottom" constant="15" id="YFP-Hn-Ykn"/>
@@ -620,11 +640,13 @@ Hãy tham gia chat</string>
                                             <constraint firstItem="Cv4-OJ-0Az" firstAttribute="top" secondItem="Am3-8W-tzq" secondAttribute="bottom" constant="15" id="kI8-a3-7U2"/>
                                             <constraint firstItem="zMr-ci-reD" firstAttribute="leading" secondItem="9W5-DV-yZB" secondAttribute="leading" constant="15" id="lGo-wx-0f5"/>
                                             <constraint firstItem="Cv4-OJ-0Az" firstAttribute="width" secondItem="NKB-vg-qhm" secondAttribute="width" id="nEt-iO-vQQ"/>
+                                            <constraint firstItem="Fdn-55-Vfu" firstAttribute="top" secondItem="ySC-QL-icp" secondAttribute="bottom" constant="30" id="nI4-NI-Q8W"/>
                                             <constraint firstItem="aLp-8H-5gD" firstAttribute="centerX" secondItem="zMr-ci-reD" secondAttribute="centerX" id="nKq-VR-cKx"/>
                                             <constraint firstItem="Am3-8W-tzq" firstAttribute="centerX" secondItem="fac-F8-vcv" secondAttribute="centerX" id="pzV-zS-l2E"/>
                                             <constraint firstItem="Bnb-jh-H12" firstAttribute="width" secondItem="Cv4-OJ-0Az" secondAttribute="width" id="qzz-uj-VGn"/>
                                             <constraint firstItem="zMr-ci-reD" firstAttribute="top" secondItem="9W5-DV-yZB" secondAttribute="bottom" constant="15" id="rHf-Sz-Ieq"/>
                                             <constraint firstItem="ySC-QL-icp" firstAttribute="centerX" secondItem="Bnb-jh-H12" secondAttribute="centerX" id="rXC-AP-EMk"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fdn-55-Vfu" secondAttribute="bottom" constant="30" id="sTa-yc-1xN"/>
                                             <constraint firstItem="9W5-DV-yZB" firstAttribute="leading" secondItem="fac-F8-vcv" secondAttribute="leading" constant="30" id="tJu-v0-2e7"/>
                                             <constraint firstItem="9i4-yg-T03" firstAttribute="centerX" secondItem="fac-F8-vcv" secondAttribute="centerX" id="uxN-od-5a4"/>
                                             <constraint firstItem="i6E-QK-50W" firstAttribute="top" secondItem="9i4-yg-T03" secondAttribute="bottom" constant="15" id="v36-gK-LlJ"/>
@@ -660,6 +682,7 @@ Hãy tham gia chat</string>
                         <outlet property="chatModeSwitch" destination="1ds-2F-JGy" id="Tgu-3y-sKE"/>
                         <outlet property="confirmPasswordTextField" destination="NKB-vg-qhm" id="Dlq-KC-YOd"/>
                         <outlet property="contentView" destination="fac-F8-vcv" id="1W1-3Y-0DP"/>
+                        <outlet property="logoutButton" destination="Fdn-55-Vfu" id="Vlt-cQ-L1I"/>
                         <outlet property="newPasswordTextField" destination="lb5-NG-3Kw" id="lib-Yf-zQa"/>
                         <outlet property="oldPasswordTextField" destination="PWp-s1-aJO" id="AFv-Gy-WOk"/>
                         <outlet property="passwordFormView" destination="Am3-8W-tzq" id="rL8-tc-LZB"/>
@@ -728,11 +751,11 @@ Hãy tham gia chat</string>
         </scene>
     </scenes>
     <resources>
+        <image name="backward-arrow" width="32" height="32"/>
         <image name="chat-icon-b" width="25.5" height="24"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="icon_camera" width="58" height="51"/>
         <image name="icon_send" width="51" height="51"/>
-        <image name="logo 1" width="128" height="124"/>
+        <image name="user" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -31,6 +31,7 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
     @IBOutlet weak var utfHeightConstraint: NSLayoutConstraint!
     var utfShown = true
     
+    @IBOutlet weak var logoutButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -54,6 +55,7 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
         universityButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
         changePasswordButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
         changeUsernameButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
+        logoutButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
         
         utfShown = false
         utfHeightConstraint.constant = 0
@@ -77,6 +79,9 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
         let newHeight:CGFloat = utfShown ? 40 : 0
         utfHeightConstraint.constant = newHeight
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}, completion: nil)
+    }
+    @IBAction func logoutButtonClick(_ sender: Any) {
+        Auth.shared.signOut()
     }
     
     func schoolPickerViewDidFinish(school:School){

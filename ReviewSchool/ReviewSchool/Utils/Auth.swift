@@ -44,5 +44,9 @@ class Auth {
         }
     }
     
+    func signOut(){
+        try? firebaseAuth.signOut()
+    }
+    
     var currentUser:User?
 }
