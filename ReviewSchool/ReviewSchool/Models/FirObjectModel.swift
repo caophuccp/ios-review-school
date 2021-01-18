@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 class FirObjectModel<T:Codable> {
+    
     var collection:CollectionReference?
     
     func get(documentID:String, completion: ((T?, Error?) -> Void)?){
@@ -34,5 +35,15 @@ class FirObjectModel<T:Codable> {
         try? collection?.document(documentID).setData(from: object) { (error) in
             completion?(error)
         }
+    }
+    
+    func addDocument(object:T, completion: ((Error?)->())?) {
+        let _ = try? collection?.addDocument(from: object){ (error) in
+            completion?(error)
+        }
+    }
+    
+    func addSnapshotListener(_ listener:@escaping FIRQuerySnapshotBlock){
+        collection?.addSnapshotListener(listener)
     }
 }

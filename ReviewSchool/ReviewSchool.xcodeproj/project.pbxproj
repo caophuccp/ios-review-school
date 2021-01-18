@@ -26,6 +26,7 @@
 		657C6D1525B404E5008245A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1425B404E5008245A6 /* User.swift */; };
 		657C6D1825B40DBA008245A6 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1725B40DBA008245A6 /* School.swift */; };
 		657C6D1B25B41187008245A6 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1A25B41187008245A6 /* Auth.swift */; };
+		657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */; };
 		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
 		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
 		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
@@ -56,6 +57,7 @@
 		657C6D1425B404E5008245A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		657C6D1725B40DBA008245A6 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		657C6D1A25B41187008245A6 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
 		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
 		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				65F97D4325B329F500F4FDE5 /* NetworkImage.swift */,
 				657C6D1A25B41187008245A6 /* Auth.swift */,
+				657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* ViewController.swift in Sources */,
 				653AACEF25B2E2B9000C289A /* MessageObject.swift in Sources */,
+				657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
 				657C6D1525B404E5008245A6 /* User.swift in Sources */,
 				653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */,

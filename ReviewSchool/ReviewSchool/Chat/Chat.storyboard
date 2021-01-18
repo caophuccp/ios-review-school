@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-hX-CeW">
                                 <rect key="frame" x="62" y="84" width="290" height="250"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-3n-avL">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-3n-avL">
                                         <rect key="frame" x="0.0" y="55" width="290" height="195"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTM-5Q-vGL">
@@ -54,9 +54,12 @@
                                             <constraint firstAttribute="width" secondItem="GYk-Se-XPp" secondAttribute="height" multiplier="1:1" id="AN0-gZ-Sq4"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="lorem" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Cj-jr-hq8">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Cj-jr-hq8">
                                         <rect key="frame" x="66" y="5" width="219" height="70"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Bạn muốn tìm hiểu về trường?
+Bạn muốn chia sẻ về trường?
+Hãy tham gia chat</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -103,9 +106,8 @@
                             <constraint firstItem="Zgb-rb-gWw" firstAttribute="centerX" secondItem="oze-zF-YQ2" secondAttribute="centerX" id="zp7-sd-61H"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="diy-Vz-qHY"/>
                     <connections>
-                        <outlet property="goButton" destination="dsi-G8-xGf" id="dEd-44-Ef4"/>
+                        <outlet property="chatButton" destination="dsi-G8-xGf" id="dEd-44-Ef4"/>
                         <outlet property="headerLabel" destination="HTM-5Q-vGL" id="N3y-Ir-gk1"/>
                         <outlet property="headerView" destination="HvH-hX-CeW" id="frN-Xo-780"/>
                         <outlet property="indicatorView" destination="E8t-3n-avL" id="j2e-Mj-dCs"/>

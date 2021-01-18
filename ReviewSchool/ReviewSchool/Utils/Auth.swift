@@ -17,7 +17,7 @@ class Auth {
     func signIn(email:String, password:String, completion: ((AuthDataResult?, Error?) -> Void)?) {
         firebaseAuth.signIn(withEmail: email, password: password) {[weak self](authResult, error) in
             if let err = error {
-                print(err.localizedDescription)
+                print("signIn" + err.localizedDescription)
                 return
             }
             
@@ -33,7 +33,7 @@ class Auth {
         if let firUser = firebaseAuth.currentUser {
             UserModel.shared.get(documentID: firUser.uid) { [weak self] (user, error) in
                 if let err = error {
-                    print(err.localizedDescription)
+                    print("checkAuthState" + err.localizedDescription)
                 }
                 if user == nil {
                     try? self?.firebaseAuth.signOut()
