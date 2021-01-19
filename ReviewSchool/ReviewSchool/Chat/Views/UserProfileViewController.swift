@@ -69,7 +69,6 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
         
         setUserData()
         
-        indicatorView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(indicatorView)
         NSLayoutConstraint.activate([
             indicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -269,7 +268,6 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
     
     func putFileAndUpdateAvatar(imageURL:URL){
         DispatchQueue.main.async {
-            self.passwordForm(edit: true)
             self.indicatorView.startAnimating()
         }
         FirebaseStorage.shared.putFile(imageURL: imageURL) {[weak self](url, error) in

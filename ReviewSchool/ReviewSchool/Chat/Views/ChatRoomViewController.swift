@@ -18,7 +18,7 @@ class ChatRoomViewController: UIViewController {
     
     var isMessageEmpty = true
     
-    var messages = [MessageObject.startedMessage()]
+    var messages = [MessageObject.startMessage()]
     
     let db = Firestore.firestore()
     let storageReference = Storage.storage().reference()
@@ -27,9 +27,12 @@ class ChatRoomViewController: UIViewController {
     var groupChatID = ""
     var messageListener:ListenerRegistration?
     
-    let userAvatar = UIImage(named: "avt")
-    let peerAvatar = UIImage(named: "avt")
+    var userAvatar = UIImage(named: "user")
+    var peerAvatar = UIImage(named: "user")
     var messageCollection:CollectionReference?
+    var firstTimeGetMsg = true
+    var isStopped = false
+    var endChatListener:ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +44,59 @@ class ChatRoomViewController: UIViewController {
             groupChatID = peerID + user.uid
         }
         messageCollection = db.collection("chat").document("messages").collection(groupChatID)
-        
-//        delete(collection: messageCollection!)
-//        deleteCollection(collection: messageCollection)
+        messageCollection?.document("endchat").setData(["end":false])
         startChat()
+        endChatListener = messageCollection?.document("endchat").addSnapshotListener({[weak self] (document, error) in
+            if let doc = document?.data(), let end = doc["end"] as? Bool {
+                if end {
+                    self?.endChat()
+                }
+            }
+        });
         registerForKeyboardNotifications()
+        
+        UserModel.shared.get(documentID: peerID) {[weak self](user, error) in
+            if let avatar = user?.avatar, let url = URL(string: avatar) {
+                NetworkImage.shared.download(url: url){ image in
+                    self?.peerAvatar = image
+                    DispatchQueue.main.async {
+                        self?.messageTableView.reloadData()
+                    }
+                }
+            }
+        }
+        if let url = URL(string: user.avatar) {
+            NetworkImage.shared.download(url: url){ [weak self] image in
+                self?.userAvatar = image
+                DispatchQueue.main.async {
+                    self?.messageTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func endChat(){
+        isStopped = true
+        messageListener?.remove()
+        messages.insert(MessageObject.endMessage(), at: 0)
+        
+        DispatchQueue.main.async {
+            self.inputTextView.isEditable = false
+            self.messageTableView.reloadData()
+        }
+    }
+    
+    func deleteMessageCollection(){
+        if let collection = messageCollection {
+            deleteCollection(collection: collection)
+        }
     }
     
     func deleteCollection(collection: CollectionReference) {
-        collection.getDocuments { [weak self] (docset, error) in
+        collection.getDocuments {(docset, error) in
             let batch = collection.firestore.batch()
             docset?.documents.forEach { batch.deleteDocument($0.reference) }
             batch.commit()
-            self?.startChat()
         }
     }
     
@@ -86,8 +129,13 @@ class ChatRoomViewController: UIViewController {
     }
     
     deinit {
-        messageListener?.remove()
-        deregisterFromKeyboardNotifications()
+        if (!isStopped) {
+            messageListener?.remove()
+            deregisterFromKeyboardNotifications()
+            messageCollection?.document("endchat").setData(["end":true])
+        } else {
+            deleteMessageCollection()
+        }
     }
     
     func startChat(){
@@ -103,15 +151,27 @@ class ChatRoomViewController: UIViewController {
                 print(e.localizedDescription)
                 return
             }
+            
             guard let documents = querySnapshot?.documents else {
                 return
             }
             
-            sSelf.messages = documents.compactMap({try? $0.data(as: MessageObject.self)})
-            sSelf.messages.sort(by: {$0.timestamp > $1.timestamp})
-            sSelf.messageTableView.reloadData()
-//            sSelf.messageTableView.scrollToBottom()
-            sSelf.messageTableView.scrollToTop()
+            let messages = documents.compactMap({try? $0.data(as: MessageObject.self)})
+            if sSelf.firstTimeGetMsg{
+                sSelf.firstTimeGetMsg = false
+                if !messages.isEmpty {
+                    sSelf.deleteMessageCollection()
+                    return
+                }
+            }
+            
+            if !messages.isEmpty && !sSelf.isStopped{
+                sSelf.messages = messages
+                sSelf.messages.sort(by: {$0.timestamp > $1.timestamp})
+                sSelf.messageTableView.reloadData()
+    //            sSelf.messageTableView.scrollToBottom()
+                sSelf.messageTableView.scrollToTop()
+            }
         }
     }
     func sendMessage(message:MessageObject) {
@@ -263,6 +323,8 @@ extension ChatRoomViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
     func sendImage(imageURL:URL){
+        messages.insert(MessageObject(content: "", type: .photo, ownerID: user.uid), at: 0)
+        messageTableView.reloadData()
         FirebaseStorage.shared.putFile(imageURL: imageURL) { [weak self](url, error) in
             if let error = error {
                 print(error.localizedDescription)
