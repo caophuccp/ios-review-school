@@ -27,13 +27,12 @@ class ChatRoomViewController: UIViewController {
     var groupChatID = ""
     var messageListener:ListenerRegistration?
     
-    let userAvatar = UIImage(named: "avt")
-    let peerAvatar = UIImage(named: "avt")
+    var userAvatar = UIImage(named: "user")
+    var peerAvatar = UIImage(named: "user")
     var messageCollection:CollectionReference?
     var firstTimeGetMsg = true
     var isStopped = false
     var endChatListener:ListenerRegistration?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +54,25 @@ class ChatRoomViewController: UIViewController {
             }
         });
         registerForKeyboardNotifications()
+        
+        UserModel.shared.get(documentID: peerID) {[weak self](user, error) in
+            if let avatar = user?.avatar, let url = URL(string: avatar) {
+                NetworkImage.shared.download(url: url){ image in
+                    self?.peerAvatar = image
+                    DispatchQueue.main.async {
+                        self?.messageTableView.reloadData()
+                    }
+                }
+            }
+        }
+        if let url = URL(string: user.avatar) {
+            NetworkImage.shared.download(url: url){ [weak self] image in
+                self?.userAvatar = image
+                DispatchQueue.main.async {
+                    self?.messageTableView.reloadData()
+                }
+            }
+        }
     }
     
     func endChat(){
@@ -305,6 +323,8 @@ extension ChatRoomViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
     func sendImage(imageURL:URL){
+        messages.insert(MessageObject(content: "", type: .photo, ownerID: user.uid), at: 0)
+        messageTableView.reloadData()
         FirebaseStorage.shared.putFile(imageURL: imageURL) { [weak self](url, error) in
             if let error = error {
                 print(error.localizedDescription)

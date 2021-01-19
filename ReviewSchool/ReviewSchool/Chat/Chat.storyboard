@@ -4,7 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="11.0"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -224,12 +224,17 @@ Hãy tham gia chat</string>
                                                         <constraint firstAttribute="height" constant="30" id="tEg-uq-sag"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-vs-5bc">
+                                                    <rect key="frame" x="204.5" y="58" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hV5-vs-5bc" firstAttribute="centerY" secondItem="awx-MF-2cD" secondAttribute="centerY" id="934-Cx-vlf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0oN-N3-tpQ" secondAttribute="trailing" constant="15" id="F93-aC-4eC"/>
                                                 <constraint firstItem="0oN-N3-tpQ" firstAttribute="leading" secondItem="awx-MF-2cD" secondAttribute="trailing" constant="10" id="Ldw-vR-fTe"/>
                                                 <constraint firstItem="awx-MF-2cD" firstAttribute="top" secondItem="n0t-4b-TM6" secondAttribute="top" constant="5" id="MJ0-1r-958"/>
                                                 <constraint firstAttribute="bottom" secondItem="awx-MF-2cD" secondAttribute="bottom" constant="5" id="WED-4X-Vdq"/>
+                                                <constraint firstItem="hV5-vs-5bc" firstAttribute="centerX" secondItem="awx-MF-2cD" secondAttribute="centerX" id="kMf-sE-w1r"/>
                                                 <constraint firstItem="awx-MF-2cD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n0t-4b-TM6" secondAttribute="leading" constant="90" id="kUZ-7Q-d0c"/>
                                                 <constraint firstAttribute="bottom" secondItem="0oN-N3-tpQ" secondAttribute="bottom" constant="5" id="wIt-YQ-Uz4"/>
                                             </constraints>
@@ -238,6 +243,7 @@ Hãy tham gia chat</string>
                                             <outlet property="avatarImageView" destination="0oN-N3-tpQ" id="17x-8F-aZy"/>
                                             <outlet property="imageAspectConstraint" destination="TtR-ci-gQG" id="p8R-H4-vt7"/>
                                             <outlet property="imageHeightConstraint" destination="JkL-ff-mbe" id="uS6-fJ-p5A"/>
+                                            <outlet property="indicatorView" destination="hV5-vs-5bc" id="tCY-Nj-mbz"/>
                                             <outlet property="msgImageView" destination="awx-MF-2cD" id="CeK-MV-gbP"/>
                                         </connections>
                                     </tableViewCell>
@@ -262,13 +268,18 @@ Hãy tham gia chat</string>
                                                         <constraint firstAttribute="height" constant="30" id="9rw-6m-WKo"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eyb-S8-4Jy">
+                                                    <rect key="frame" x="189.5" y="64" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ZAg-qv-gbZ" firstAttribute="top" secondItem="kP5-0p-WDY" secondAttribute="top" constant="5" id="Rxg-yA-TdB"/>
+                                                <constraint firstItem="eyb-S8-4Jy" firstAttribute="centerY" secondItem="ZAg-qv-gbZ" secondAttribute="centerY" id="aLa-HM-6OO"/>
                                                 <constraint firstItem="ZAg-qv-gbZ" firstAttribute="leading" secondItem="Ik1-mF-3Vg" secondAttribute="trailing" constant="10" id="bdc-6a-ign"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZAg-qv-gbZ" secondAttribute="trailing" constant="90" id="ioa-sy-gvk"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZAg-qv-gbZ" secondAttribute="bottom" constant="5" id="kyn-hH-OeJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ik1-mF-3Vg" secondAttribute="bottom" constant="5" id="n2O-jF-mZ7"/>
+                                                <constraint firstItem="eyb-S8-4Jy" firstAttribute="centerX" secondItem="ZAg-qv-gbZ" secondAttribute="centerX" id="voN-y6-AXc"/>
                                                 <constraint firstItem="Ik1-mF-3Vg" firstAttribute="leading" secondItem="kP5-0p-WDY" secondAttribute="leadingMargin" constant="15" id="yFP-h2-AKh"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -276,6 +287,7 @@ Hãy tham gia chat</string>
                                             <outlet property="avatarImageView" destination="Ik1-mF-3Vg" id="tLt-zB-gfH"/>
                                             <outlet property="imageAspectConstraint" destination="evx-ll-GCY" id="GQd-QS-IWS"/>
                                             <outlet property="imageHeightConstraint" destination="0kr-lY-n0W" id="oe0-C7-om0"/>
+                                            <outlet property="indicatorView" destination="eyb-S8-4Jy" id="C4o-HV-sv7"/>
                                             <outlet property="msgImageView" destination="ZAg-qv-gbZ" id="TKQ-bZ-TwN"/>
                                         </connections>
                                     </tableViewCell>

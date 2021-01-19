@@ -40,11 +40,16 @@ class ImageMessageViewCell:MessageViewCell {
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint?
     @IBOutlet weak var imageAspectConstraint: NSLayoutConstraint?
     @IBOutlet weak var avatarImageView: UIImageView?
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func setup(message:MessageObject, avatar:UIImage?){
+        indicatorView.hidesWhenStopped = true
+        indicatorView.startAnimating()
         self.msgImageView.contentMode = .scaleAspectFit
 //        self.msgImageView.backgroundColor = .systemRed
         self.msgImageView.layer.masksToBounds = true
+        self.msgImageView.layer.borderColor = #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1)
+        self.msgImageView.layer.borderWidth = 1
         self.msgImageView.layer.cornerRadius = 10
         self.avatarImageView?.layer.masksToBounds = true
         self.avatarImageView?.layer.cornerRadius = 15
@@ -63,6 +68,8 @@ class ImageMessageViewCell:MessageViewCell {
     }
     
     func setImage(image:UIImage) {
+        self.msgImageView.layer.borderWidth = 0
+        indicatorView.stopAnimating()
         if imageAspectConstraint != nil {
             let aspect = image.size.width/image.size.height
             imageAspectConstraint?.isActive = false

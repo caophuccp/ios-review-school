@@ -69,7 +69,6 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
         
         setUserData()
         
-        indicatorView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(indicatorView)
         NSLayoutConstraint.activate([
             indicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -28,6 +28,7 @@ extension UIView {
 extension UIActivityIndicatorView {
     static func large() -> UIActivityIndicatorView {
         let indicatorView = UIActivityIndicatorView()
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 13.0, *) {
             indicatorView.style = .large
         } else {
