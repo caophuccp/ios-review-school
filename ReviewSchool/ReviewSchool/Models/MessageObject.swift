@@ -65,8 +65,12 @@ extension MessageObject {
         case unknown = 2
     }
     
-    static func startedMessage() -> MessageObject{
+    static func startMessage() -> MessageObject{
         let msg = MessageObject(content: "Cuộc trò chuyện đã được bắt đầu", type: .text, ownerID: "system")
         return msg
+    }
+    
+    static func endMessage() -> MessageObject {
+        return MessageObject(content: "Cuộc trò chuyện đã kết thúc", type: .text, ownerID: "system")
     }
 }
