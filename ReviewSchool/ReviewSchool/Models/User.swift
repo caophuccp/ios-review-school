@@ -27,6 +27,16 @@ class User: Codable {
         chatMode = true
     }
     
+    init(uid:String, email:String?, username:String, avatar:String, dateCreated:Int, chatSchool:String, chatMode:Bool) {
+        self.uid = uid
+        self.email = email
+        self.username = username
+        self.avatar = avatar
+        self.dateCreated = dateCreated
+        self.chatSchool = chatSchool
+        self.chatMode = chatMode
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case uid
         case email
@@ -57,6 +67,11 @@ class User: Codable {
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
         chatSchool = try container.decode(String.self, forKey: .chatSchool)
         chatMode = try container.decode(Bool.self, forKey: .chatMode)
+    }
+    
+    func copy() -> User{
+        let copiedUser = User(uid: uid, email: email, username: username, avatar: avatar, dateCreated: dateCreated, chatSchool: chatSchool, chatMode: chatMode)
+        return copiedUser
     }
 }
 

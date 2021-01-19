@@ -39,10 +39,6 @@ class ChatRoomViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         
-        if user.uid == "bfZeRPepF8QjmfttLuSrEXgSoq52" {
-            peerID = "ewkWfiWdpZXB66brRNLgtkQi8XF2"
-        }
-        
         if user.uid.hash < peerID.hash {
             groupChatID = user.uid + peerID
         } else {
@@ -171,7 +167,7 @@ class ChatRoomViewController: UIViewController {
     @IBAction func sendImage(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .formSheet
         vc.allowsEditing = false
         vc.sourceType = .photoLibrary
         self.present(vc, animated: true, completion: nil)
@@ -247,21 +243,24 @@ extension ChatRoomViewController: UITextViewDelegate {
         messageTableView.scrollToTop()
         let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
         inputViewBottomConstraint.constant = keyboardSize.height
-        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut) {
-            self.view.layoutIfNeeded()
-        } completion: { (_) in
-            
-        }
+//        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut) {
+//            self.view.layoutIfNeeded()
+//        } completion: { (_) in
+//
+//        }
+//
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
     }
     
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
         inputViewBottomConstraint.constant = 5
-        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut) {
-            self.view.layoutIfNeeded()
-        } completion: { (_) in
-            
-        }
+//        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut) {
+//            self.view.layoutIfNeeded()
+//        } completion: { (_) in
+//
+//        }
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -300,12 +299,12 @@ extension ChatRoomViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        if let url = info[.imageURL] as? URL, let image = info[.originalImage] as? UIImage{
-            sendImage(imageURL: url, imageSize:image.size)
+        if let url = info[.imageURL] as? URL{
+            sendImage(imageURL: url)
         }
     }
     
-    func sendImage(imageURL:URL, imageSize:CGSize){
+    func sendImage(imageURL:URL){
         FirebaseStorage.shared.putFile(imageURL: imageURL) { [weak self](url, error) in
             if let error = error {
                 print(error.localizedDescription)
