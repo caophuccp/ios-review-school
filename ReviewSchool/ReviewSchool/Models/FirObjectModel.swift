@@ -46,4 +46,8 @@ class FirObjectModel<T:Codable> {
     func addSnapshotListener(_ listener:@escaping FIRQuerySnapshotBlock){
         collection?.addSnapshotListener(listener)
     }
+    
+    func updateData(documentID:String, fields:[AnyHashable:Any], completion:((Error?)->Void)?) {
+        collection?.document(documentID).updateData(fields, completion: completion)
+    }
 }

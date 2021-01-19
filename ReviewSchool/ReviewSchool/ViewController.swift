@@ -48,8 +48,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signInButtonClick(_ sender: Any) {
-        auth.signIn(email: usernameTextField.text!, password: passwordTextField.text!) { [weak self] (auth, err) in
-            if let _ = auth {
+        auth.signIn(email: usernameTextField.text!, password: passwordTextField.text!) { [weak self] (user, err) in
+            if let _ = user {
                 DispatchQueue.main.async {
                     self?.goChat()
                 }
@@ -58,6 +58,8 @@ class ViewController: UIViewController {
     }
     
     func goChat(){
+        usernameTextField.text = ""
+        passwordTextField.text = ""
         let tab = TabBarViewController()
         tab.modalPresentationStyle = .fullScreen
         self.present(tab, animated: true, completion: nil)

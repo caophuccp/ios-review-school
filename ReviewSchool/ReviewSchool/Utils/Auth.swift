@@ -14,16 +14,17 @@ class Auth {
     
     let firebaseAuth = Firebase.Auth.auth()
     
-    func signIn(email:String, password:String, completion: ((AuthDataResult?, Error?) -> Void)?) {
-        firebaseAuth.signIn(withEmail: email, password: password) {[weak self](authResult, error) in
+    func signIn(email:String, password:String, completion: ((User?, Error?) -> Void)?) {
+        firebaseAuth.signIn(withEmail: email, password: password) {(authResult, error) in
             if let err = error {
-                print("signIn" + err.localizedDescription)
+                print("signIn: " + err.localizedDescription)
                 return
             }
             
-            if let user = authResult?.user {
-                UserModel.shared.get(documentID: user.uid, completion: { (user, error) in
-                    self?.currentUser = user
+            if let fireUser = authResult?.user {
+                UserModel.shared.get(documentID: fireUser.uid, completion: { (user, error) in
+                    self.currentUser = user
+                    completion?(user, error)
                 })
             }
         }
@@ -46,6 +47,21 @@ class Auth {
     
     func signOut(){
         try? firebaseAuth.signOut()
+    }
+    
+    func changePassword(old: String, new: String, completion: ((Error?) -> ())?) {
+        if let firebaseUser = firebaseAuth.currentUser {
+            let credential = EmailAuthProvider.credential(withEmail: firebaseUser.email ?? "", password: old)
+            firebaseUser.reauthenticate(with: credential) { (auth, error) in
+                firebaseUser.updatePassword(to: new, completion: completion)
+            }
+        } else {
+            completion?(AuthError.userNil)
+        }
+    }
+    
+    enum AuthError:Error {
+        case userNil
     }
     
     var currentUser:User?

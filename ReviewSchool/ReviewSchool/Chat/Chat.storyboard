@@ -465,6 +465,9 @@ Hãy tham gia chat</string>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-2F-JGy">
                                                         <rect key="frame" x="275" y="5" width="51" height="30"/>
+                                                        <connections>
+                                                            <action selector="chatModeSwitchDidChange:" destination="V1I-he-o8B" eventType="valueChanged" id="ZMH-2E-IZd"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -584,7 +587,7 @@ Hãy tham gia chat</string>
                                                     <constraint firstAttribute="height" priority="999" constant="40" id="NJe-fL-MNb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-QL-icp">
                                                 <rect key="frame" x="77.5" y="745" width="259" height="45"/>
@@ -611,7 +614,6 @@ Hãy tham gia chat</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="changeUsernameButtonClick:" destination="V1I-he-o8B" eventType="touchUpInside" id="Jtc-AC-JbN"/>
                                                     <action selector="logoutButtonClick:" destination="V1I-he-o8B" eventType="touchUpInside" id="zrm-Sm-5gW"/>
                                                 </connections>
                                             </button>

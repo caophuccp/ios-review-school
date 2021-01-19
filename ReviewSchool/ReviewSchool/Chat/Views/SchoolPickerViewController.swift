@@ -29,19 +29,35 @@ class SchoolPickerViewController:UIViewController {
         
         SchoolModel.shared.getAll {[weak self] (result, error) in
             if let sl = result {
-                self?.schoolList = sl
-                self?.filteredSchools = sl
-                self?.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self?.reloadData(sl)
+                }
             }
         }
     }
     
+    func reloadData(_ data: [School]){
+        self.schoolList = data
+        if let allIndex = schoolList.firstIndex(where: {$0.id == "all"}) {
+            schoolList.swapAt(allIndex, 0)
+        }
+        filter(searchText: searchBar.text ?? "")
+        self.tableView.reloadData()
+    }
+    
+    func filter(searchText:String){
+        if (searchText.isEmpty) {
+            self.filteredSchools = schoolList
+            return
+        }
+        let key = searchText.lowercased()
+        self.filteredSchools = schoolList.filter({$0.name.lowercased().contains(key)})
+    }
 }
 
 extension SchoolPickerViewController:UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let key = searchText.lowercased()
-        filteredSchools = schoolList.filter({$0.name.lowercased().contains(key)})
+        filter(searchText: searchText)
         tableView.reloadData()
     }
 }

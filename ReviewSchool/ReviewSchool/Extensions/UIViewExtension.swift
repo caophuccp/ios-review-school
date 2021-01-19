@@ -24,3 +24,15 @@ extension UIView {
         self.endEditing(true)
     }
 }
+
+extension UIActivityIndicatorView {
+    static func large() -> UIActivityIndicatorView {
+        let indicatorView = UIActivityIndicatorView()
+        if #available(iOS 13.0, *) {
+            indicatorView.style = .large
+        } else {
+            indicatorView.style = .gray
+        }
+        return indicatorView
+    }
+}

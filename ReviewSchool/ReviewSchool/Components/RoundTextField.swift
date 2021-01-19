@@ -66,4 +66,9 @@ class RoundTextField:UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return textRect(forBounds: bounds)
     }
+    
+    func reset(){
+        hasError = false
+        text = ""
+    }
 }
