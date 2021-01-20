@@ -40,6 +40,7 @@
 		65F3645C25B874F5009221C6 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645B25B874F5009221C6 /* SchoolViewController.swift */; };
 		65F3645F25B87D4C009221C6 /* QRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */; };
 		65F3646325B8AF5C009221C6 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646225B8AF5C009221C6 /* MessageInputView.swift */; };
+		65F3646625B8B8AE009221C6 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646525B8B8AE009221C6 /* Review.swift */; };
 		65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F97D4325B329F500F4FDE5 /* NetworkImage.swift */; };
 		C1BC8AC1FCCE92AF3F94E027 /* Pods_ReviewSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961201525601E758EF330F0B /* Pods_ReviewSchool.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		65F3645B25B874F5009221C6 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeHelper.swift; sourceTree = "<group>"; };
 		65F3646225B8AF5C009221C6 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
+		65F3646525B8B8AE009221C6 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		65F97D4325B329F500F4FDE5 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		961201525601E758EF330F0B /* Pods_ReviewSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReviewSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3581D35E0DA2B38A015B25 /* Pods-ReviewSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewSchool.release.xcconfig"; path = "Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				657C6D1425B404E5008245A6 /* User.swift */,
 				657C6D1725B40DBA008245A6 /* School.swift */,
 				65301BA025B4390500707F1B /* FirObjectModel.swift */,
+				65F3646525B8B8AE009221C6 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				650ADF2C25B1BF9F00C8442C /* SceneDelegate.swift in Sources */,
 				657C6D1825B40DBA008245A6 /* School.swift in Sources */,
 				653AACB425B2CC1F000C289A /* UIViewExtension.swift in Sources */,
+				65F3646625B8B8AE009221C6 /* Review.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

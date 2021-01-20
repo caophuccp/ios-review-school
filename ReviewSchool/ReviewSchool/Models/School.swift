@@ -55,24 +55,4 @@ class SchoolModel:FirObjectModel<School> {
     func save(school: School, completion: ((Error?)->())?) {
         self.save(documentID: school.id, object: school, completion: completion)
     }
-//
-//    func peganition(){
-//        let first = db.collection("cities")
-//            .order(by: "population")
-//            .limit(to: 25)
-//
-//        first.addSnapshotListener { (snapshot, error) in
-//            guard let snapshot = snapshot else {
-//                print("Error retreving cities: \(error.debugDescription)")
-//                return
-//            }
-//
-//            guard let lastSnapshot = snapshot.documents.last else {
-//                return
-//            }
-//            let next = db.collection("cities")
-//                .order(by: "population")
-//                .start(afterDocument: lastSnapshot)
-//        }
-//    }
 }
