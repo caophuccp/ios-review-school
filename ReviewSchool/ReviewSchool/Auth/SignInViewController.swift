@@ -25,6 +25,7 @@ class SignInViewController: BaseViewController {
         
         setupViews()
         self.view.hideKeyboardWhenTappedAround()
+        isEditing = false
     }
     
     func setupViews(){
@@ -112,14 +113,6 @@ class SignInViewController: BaseViewController {
         }
     }
     
-    func alertError(title:String?, message: String?){
-        if presentedViewController == nil {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     func validate() -> Validator.ValidationError {
         if !Validator.isValid(email: emailTextField.text ?? "") {
             return Validator.ValidationError(error: true, message: "Invalid Email")
@@ -130,9 +123,16 @@ class SignInViewController: BaseViewController {
     func goMain(){
         emailTextField.text = ""
         passwordTextField.text = ""
-        let tab = TabBarViewController()
-        tab.modalPresentationStyle = .fullScreen
-        self.present(tab, animated: true, completion: nil)
+        if User.Role.Admin == auth.currentUser?.role{
+            let tab = UIStoryboard(name: "Admin", bundle: nil).instantiateViewController(withIdentifier: "AdminTabController")
+            tab.modalPresentationStyle = .fullScreen
+            self.present(tab, animated: true, completion: nil)
+        }
+        else {
+            let tab = TabBarViewController()
+            tab.modalPresentationStyle = .fullScreen
+            self.present(tab, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signInSwitchOnClick(_ sender: Any) {

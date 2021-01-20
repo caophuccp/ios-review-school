@@ -33,6 +33,13 @@
 		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
 		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
 		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
+		65F3644B25B86145009221C6 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F3644A25B86145009221C6 /* Admin.storyboard */; };
+		65F3644E25B8671B009221C6 /* AdminTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3644D25B8671B009221C6 /* AdminTabController.swift */; };
+		65F3645325B86766009221C6 /* AdminSchoolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645225B86766009221C6 /* AdminSchoolController.swift */; };
+		65F3645825B869F6009221C6 /* AdminSchoolCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645725B869F6009221C6 /* AdminSchoolCellView.swift */; };
+		65F3645C25B874F5009221C6 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645B25B874F5009221C6 /* SchoolViewController.swift */; };
+		65F3645F25B87D4C009221C6 /* QRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */; };
+		65F3646325B8AF5C009221C6 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646225B8AF5C009221C6 /* MessageInputView.swift */; };
 		65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F97D4325B329F500F4FDE5 /* NetworkImage.swift */; };
 		C1BC8AC1FCCE92AF3F94E027 /* Pods_ReviewSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961201525601E758EF330F0B /* Pods_ReviewSchool.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +74,13 @@
 		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
 		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		65F3644A25B86145009221C6 /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		65F3644D25B8671B009221C6 /* AdminTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTabController.swift; sourceTree = "<group>"; };
+		65F3645225B86766009221C6 /* AdminSchoolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSchoolController.swift; sourceTree = "<group>"; };
+		65F3645725B869F6009221C6 /* AdminSchoolCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSchoolCellView.swift; sourceTree = "<group>"; };
+		65F3645B25B874F5009221C6 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
+		65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeHelper.swift; sourceTree = "<group>"; };
+		65F3646225B8AF5C009221C6 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		65F97D4325B329F500F4FDE5 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		961201525601E758EF330F0B /* Pods_ReviewSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReviewSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3581D35E0DA2B38A015B25 /* Pods-ReviewSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewSchool.release.xcconfig"; path = "Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +136,7 @@
 		650ADF2825B1BF9F00C8442C /* ReviewSchool */ = {
 			isa = PBXGroup;
 			children = (
+				65F3644925B86032009221C6 /* Admin */,
 				653504B025B819A800B681F2 /* Auth */,
 				65F97D4225B329E500F4FDE5 /* Utils */,
 				653AACED25B2E2AB000C289A /* Models */,
@@ -155,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				653AACAF25B2CB00000C289A /* RoundTextField.swift */,
+				65F3646225B8AF5C009221C6 /* MessageInputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,12 +224,33 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		65F3644925B86032009221C6 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				65F3644A25B86145009221C6 /* Admin.storyboard */,
+				65F3645B25B874F5009221C6 /* SchoolViewController.swift */,
+				65F3644D25B8671B009221C6 /* AdminTabController.swift */,
+				65F3645225B86766009221C6 /* AdminSchoolController.swift */,
+				65F3645625B869DE009221C6 /* Comonents */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		65F3645625B869DE009221C6 /* Comonents */ = {
+			isa = PBXGroup;
+			children = (
+				65F3645725B869F6009221C6 /* AdminSchoolCellView.swift */,
+			);
+			path = Comonents;
+			sourceTree = "<group>";
+		};
 		65F97D4225B329E500F4FDE5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				657C6D1A25B41187008245A6 /* Auth.swift */,
 				65F97D4325B329F500F4FDE5 /* NetworkImage.swift */,
 				657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */,
+				65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -281,6 +318,7 @@
 				650ADF3325B1BFA000C8442C /* Assets.xcassets in Resources */,
 				653AACE725B2E1CF000C289A /* GoogleService-Info.plist in Resources */,
 				65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */,
+				65F3644B25B86145009221C6 /* Admin.storyboard in Resources */,
 				650ADF3125B1BF9F00C8442C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,24 +373,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				653AAD0825B2E338000C289A /* MessageViewCell.swift in Sources */,
+				65F3646325B8AF5C009221C6 /* MessageInputView.swift in Sources */,
 				65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */,
 				65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* SignInViewController.swift in Sources */,
 				65272CC325B8224D00E599A8 /* Validator.swift in Sources */,
+				65F3645825B869F6009221C6 /* AdminSchoolCellView.swift in Sources */,
 				653AACEF25B2E2B9000C289A /* MessageObject.swift in Sources */,
 				657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
 				657C6D1525B404E5008245A6 /* User.swift in Sources */,
+				65F3645C25B874F5009221C6 /* SchoolViewController.swift in Sources */,
 				653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */,
 				653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */,
 				657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */,
 				65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */,
+				65F3645325B86766009221C6 /* AdminSchoolController.swift in Sources */,
 				65272CC625B839FF00E599A8 /* BaseViewController.swift in Sources */,
 				65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */,
 				65301BA525B43EC500707F1B /* SchoolPickerViewController.swift in Sources */,
+				65F3644E25B8671B009221C6 /* AdminTabController.swift in Sources */,
 				657C6D1B25B41187008245A6 /* Auth.swift in Sources */,
 				65272CBF25B81A2100E599A8 /* SignUpViewController.swift in Sources */,
 				653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */,
+				65F3645F25B87D4C009221C6 /* QRCodeHelper.swift in Sources */,
 				650ADF2C25B1BF9F00C8442C /* SceneDelegate.swift in Sources */,
 				657C6D1825B40DBA008245A6 /* School.swift in Sources */,
 				653AACB425B2CC1F000C289A /* UIViewExtension.swift in Sources */,
