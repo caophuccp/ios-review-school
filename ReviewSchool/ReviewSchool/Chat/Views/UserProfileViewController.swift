@@ -14,7 +14,7 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var chatModeSwitch: UISwitch!
-    @IBOutlet weak var universityButton: UIButton!
+    @IBOutlet weak var schoolButton: UIButton!
     
     @IBOutlet weak var oldPasswordTextField: RoundTextField!
     @IBOutlet weak var newPasswordTextField: RoundTextField!
@@ -52,10 +52,10 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
         pfvShown = false
         pfvHeightConstraint.constant = 0
         avatarView.rounded(borderWidth: 0, color: .clear, cornerRadius: 60)
-        universityButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
-        universityButton.titleLabel?.minimumScaleFactor = 0.5
-        universityButton.titleLabel?.numberOfLines = 1
-        universityButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        schoolButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
+        schoolButton.titleLabel?.minimumScaleFactor = 0.5
+        schoolButton.titleLabel?.numberOfLines = 1
+        schoolButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
         changePasswordButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
         changeUsernameButton.rounded(borderWidth: 0, color: .clear, cornerRadius: 10)
@@ -80,7 +80,7 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
         usernameLabel.text = user?.username
         chatModeSwitch.isOn = user?.chatMode ?? false
         SchoolModel.shared.get(documentID: user?.chatSchool ?? "") { [weak self] (school, error) in
-            self?.universityButton.setTitle(school?.name ?? "Tất cả", for: .normal)
+            self?.schoolButton.setTitle(school?.name ?? "Tất cả", for: .normal)
         }
         if let avatar = user?.avatar, let url = URL(string: avatar) {
             NetworkImage.shared.download(url: url) {(image) in

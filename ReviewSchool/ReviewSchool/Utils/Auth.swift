@@ -14,10 +14,40 @@ class Auth {
     
     let firebaseAuth = Firebase.Auth.auth()
     
+    func createUser(user:User, password:String, completion: ((User?, Error?) -> ())?) {
+        firebaseAuth.createUser(withEmail: user.email ?? "", password: password) { (auth, error) in
+            if let error = error {
+                completion?(nil, error)
+                print(error.localizedDescription)
+                return
+            }
+            
+            if let auth = auth {
+                let fireUser = auth.user
+                user.uid = fireUser.uid
+                UserModel.shared.save(user: user) { (error) in
+                    if error == nil {
+                        self.currentUser = user
+                        completion?(user, nil)
+                        return
+                    }
+                    self.deleteCurrentUser()
+                }
+            }
+            completion?(nil, nil)
+        }
+    }
+    
+    func deleteCurrentUser(){
+        let firebaseUser = firebaseAuth.currentUser
+        firebaseUser?.delete();
+        signOut();
+    }
+    
     func signIn(email:String, password:String, completion: ((User?, Error?) -> Void)?) {
         firebaseAuth.signIn(withEmail: email, password: password) {(authResult, error) in
-            if let err = error {
-                print("signIn: " + err.localizedDescription)
+            if error != nil {
+                completion?(nil, error)
                 return
             }
             
@@ -26,7 +56,9 @@ class Auth {
                     self.currentUser = user
                     completion?(user, error)
                 })
+                return
             }
+            completion?(nil, nil)
         }
     }
     
@@ -56,12 +88,16 @@ class Auth {
                 firebaseUser.updatePassword(to: new, completion: completion)
             }
         } else {
-            completion?(AuthError.userNil)
+            completion?(AuthError.UserNil)
         }
     }
     
+    func sendPasswordReset(email:String, completion:((Error?) -> Void)?){
+        firebaseAuth.sendPasswordReset(withEmail: email, completion: completion)
+    }
+    
     enum AuthError:Error {
-        case userNil
+        case UserNil
     }
     
     var currentUser:User?

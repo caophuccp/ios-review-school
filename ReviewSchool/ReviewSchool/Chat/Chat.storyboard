@@ -4,7 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="11.0"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -701,8 +701,8 @@ Hãy tham gia chat</string>
                         <outlet property="oldPasswordTextField" destination="PWp-s1-aJO" id="AFv-Gy-WOk"/>
                         <outlet property="passwordFormView" destination="Am3-8W-tzq" id="rL8-tc-LZB"/>
                         <outlet property="pfvHeightConstraint" destination="Nv4-yq-auG" id="spr-2N-Ggw"/>
+                        <outlet property="schoolButton" destination="lwI-Ly-VW1" id="RKZ-6j-2Ae"/>
                         <outlet property="scrollView" destination="ZIG-JZ-i6s" id="LUh-W0-1Vr"/>
-                        <outlet property="universityButton" destination="lwI-Ly-VW1" id="RKZ-6j-2Ae"/>
                         <outlet property="usernameLabel" destination="i6E-QK-50W" id="wea-BD-gJj"/>
                         <outlet property="usernameTextField" destination="Bnb-jh-H12" id="ev4-lz-s0g"/>
                         <outlet property="utfHeightConstraint" destination="NJe-fL-MNb" id="7Hd-IW-L0s"/>
