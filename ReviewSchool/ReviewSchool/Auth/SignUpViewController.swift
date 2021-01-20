@@ -58,14 +58,6 @@ class SignUpViewController: BaseViewController {
         }
     }
     
-    func alertError(title:String?, message: String?){
-        if presentedViewController == nil {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     func getUserFromForm() -> User{
         let email = emailTextField.text ?? ""
         let username = usernameTextField.text ?? ""
@@ -92,9 +84,16 @@ class SignUpViewController: BaseViewController {
         emailTextField.text = ""
         passwordTextField.text = ""
         usernameTextField.text = ""
-        let tab = TabBarViewController()
-        tab.modalPresentationStyle = .fullScreen
-        self.present(tab, animated: true, completion: nil)
+        if User.Role.Admin == auth.currentUser?.role{
+            let tab = UIStoryboard(name: "Admin", bundle: nil).instantiateViewController(withIdentifier: "AdminTabController")
+            tab.modalPresentationStyle = .fullScreen
+            self.present(tab, animated: true, completion: nil)
+        }
+        else {
+            let tab = TabBarViewController()
+            tab.modalPresentationStyle = .fullScreen
+            self.present(tab, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signInSwitchOnClick(_ sender: Any) {

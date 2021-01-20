@@ -32,9 +32,16 @@ class BaseViewController:UIViewController {
     
     func disableUserInteraction(){
         view.isUserInteractionEnabled = false
-        view.alpha = 0.8
+//        view.alpha = 0.8
         view.bringSubviewToFront(indicatorView)
         indicatorView.startAnimating()
     }
     
+    func alertError(title:String?, message: String?){
+        if presentedViewController == nil {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
