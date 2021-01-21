@@ -21,12 +21,12 @@ class TabBarViewController:UITabBarController {
         let chatTab = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatTabView")
         chatTab.tabBarItem = UITabBarItem(title: "Chat", image: UIImage(named: "chat-icon"), tag: 2)
         let scanTab = UIStoryboard(name: "Scan", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
-        scanTab.tabBarItem = UITabBarItem(title: "Scan", image: UIImage(named: "chat-icon"), tag: 3)
+        scanTab.tabBarItem = UITabBarItem(title: "Scan", image: UIImage(named: "scan-icon"), tag: 3)
         
         let profileTab = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "UserProfileView")
         profileTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-icon"), tag: 4)
         
         self.tabBar.backgroundColor = #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1)
-        self.viewControllers = [tabOne, chatTab, scanTab, profileTab]
+        self.viewControllers = [tabOne, scanTab, chatTab, profileTab]
     }
 }
