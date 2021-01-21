@@ -13,7 +13,7 @@ class AddEditReviewViewController: BaseViewController{
     @IBOutlet weak var schoolNameLabel: UIButton!
     @IBOutlet weak var imageImageView: UIImageView!
     @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var RatingView: UIView!
+    @IBOutlet weak var ratingView: RatingView!
     @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class AddEditReviewViewController: BaseViewController{
     func settupView(){
         contentTextView.rounded(borderWidth: 1, color: #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1), cornerRadius: 7)
         schoolNameLabel.rounded(borderWidth: 1, color: #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1), cornerRadius: 7)
-        RatingView.rounded(borderWidth: 1, color: #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1), cornerRadius: 7)
+        ratingView.isUserInteractionEnabled = true
         doneButton.rounded(borderWidth: 1, color: #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1), cornerRadius: 7)
     }
     
