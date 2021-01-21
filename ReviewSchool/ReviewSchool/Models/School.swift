@@ -55,4 +55,16 @@ class SchoolModel:FirObjectModel<School> {
     func save(school: School, completion: ((Error?)->())?) {
         self.save(documentID: school.id, object: school, completion: completion)
     }
+    
+    func search(key:String, completion: (([School]?, Error?)->())?) {
+        let lowercasedKey = key.lowercased()
+        self.getAll { (schools, error) in
+            if let schools = schools {
+                let filtered = schools.filter({$0.name.localizedLowercase.contains(lowercasedKey)})
+                completion?(filtered, error)
+            } else {
+                completion?(schools, error)
+            }
+        }
+    }
 }

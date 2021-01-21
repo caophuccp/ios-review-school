@@ -92,7 +92,7 @@ class ReviewModel:FirObjectModel<Review> {
     
     func getAll(bySchoolID schoolID:String, completion: (([Review]?, Error?)->())?){
         collection?.whereField("schoolID", isEqualTo: schoolID)
-            .order(by: "dateCreated", descending: true).getDocuments(completion: { (querySnapshot, error) in
+            .getDocuments(completion: { (querySnapshot, error) in
             if error != nil {
                 completion?(nil, error)
                 return
