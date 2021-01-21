@@ -45,7 +45,6 @@ class AdminSchoolController:UIViewController{
     }
     
     deinit {
-        print("AdminSchoolController deinit")
         listener?.remove()
     }
     
@@ -56,8 +55,9 @@ class AdminSchoolController:UIViewController{
     }
     
     func filter(searchText:String){
-        if (searchText.isEmpty) {
+        if (searchText.trimmingCharacters(in: .whitespaces).isEmpty) {
             self.filteredSchools = schools
+            tableView.reloadData()
             return
         }
         let key = searchText.lowercased()

@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 class Review: Codable {
+    static let defaultImage = "https://firebasestorage.googleapis.com/v0/b/school-review-c1bb6.appspot.com/o/images%2Fschool.png?alt=media&token=09e1d954-8080-4061-a5da-b34d8a84ef01"
     var id:String
     var userID:String
     var schoolID:String
@@ -25,7 +26,7 @@ class Review: Codable {
         self.star = star
         self.content = ""
         self.dateCreated = Int(Date().timeIntervalSince1970)
-        self.image = "https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_1280.jpg"
+        self.image = Review.defaultImage
         self.dateCreatedString = ""
     }
     
@@ -90,7 +91,8 @@ class ReviewModel:FirObjectModel<Review> {
     }
     
     func getAll(bySchoolID schoolID:String, completion: (([Review]?, Error?)->())?){
-        collection?.whereField("schoolID", isEqualTo: schoolID).getDocuments(completion: { (querySnapshot, error) in
+        collection?.whereField("schoolID", isEqualTo: schoolID)
+            .order(by: "dateCreated", descending: true).getDocuments(completion: { (querySnapshot, error) in
             if error != nil {
                 completion?(nil, error)
                 return
@@ -102,7 +104,7 @@ class ReviewModel:FirObjectModel<Review> {
     }
     
     func getAll(orderBy field:String, completion: (([Review]?, Error?) ->())?) {
-        collection?.order(by: field).getDocuments(completion: { (querySnapshot, error) in
+        collection?.order(by: field, descending: true).getDocuments(completion: { (querySnapshot, error) in
             if error != nil {
                 completion?(nil, error)
                 return
