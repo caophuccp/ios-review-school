@@ -30,6 +30,12 @@ class SchoolViewController:BaseViewController {
         }
     }
     
+    var doneBlock:(()->())?
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        doneBlock?()
+    }
     
     func reloadButtonTitle(){
         let rightButtonTitle:String

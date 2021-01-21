@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import RxSwift
+import RxCocoa
 
 protocol SchoolPickerViewDelegate{
     func schoolPickerViewDidFinish(school:School)
@@ -16,63 +18,62 @@ class AdminSchoolController:UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    let disposeBag = DisposeBag()
     var schools = [School]()
-    var filteredSchools = [School]()
-    var listener:ListenerRegistration?
-    var lastDocument:DocumentSnapshot?
-    let collection = Firestore.firestore().collection("school")
-    
     var pickerDelegate:SchoolPickerViewDelegate?
-    
+    var lazyQuery = LazyQuery<School>(collection: SchoolModel.shared.collection!, orderBy: "name")
+    let refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
-        listener = SchoolModel.shared.addSnapshotListener { [weak self](query, error) in
-            if let documents = query?.documents {
-                let newData = documents.compactMap({try? $0.data(as: School.self)})
+        getData()
+    }
+    
+    func getData(){
+        lazyQuery.getDataSync {[weak self] (newSchools, error) in
+            self?.refreshControl.endRefreshing()
+            if let newSchools = newSchools {
+                self?.schools.append(contentsOf: newSchools)
                 DispatchQueue.main.async {
-                    self?.reloadData(newData)
+                    self?.tableView.reloadData()
                 }
             }
         }
     }
     
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        refeshData()
+    }
+    
+    @objc func refeshData(){
+        filter(searchText: searchBar.text ?? "")
+    }
+    
     func setupViews(){
+        refreshControl.addTarget(self, action: #selector(refeshData), for: UIControl.Event.valueChanged)
+        tableView.refreshControl = refreshControl
+        
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
-    }
-    
-    deinit {
-        listener?.remove()
-    }
-    
-    func reloadData(_ data: [School]){
-        self.schools = data
-        filter(searchText: searchBar.text ?? "")
-        self.tableView.reloadData()
+        searchBar.rx.text.orEmpty
+            .debounce(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            .distinctUntilChanged()
+            .subscribe(onNext: {[weak self] query in
+                self?.filter(searchText: query)
+            })
+            .disposed(by: disposeBag)
     }
     
     func filter(searchText:String){
         if (searchText.trimmingCharacters(in: .whitespaces).isEmpty) {
-            self.filteredSchools = schools
-            tableView.reloadData()
-            return
+            lazyQuery = LazyQuery<School>(collection: SchoolModel.shared.collection!, orderBy: "name")
+        } else {
+            lazyQuery = LazyQueryFilter<School>(collection: SchoolModel.shared.collection!, orderBy: "name", key: searchText)
         }
-        let key = searchText.lowercased()
-        self.filteredSchools = schools.filter({$0.name.lowercased().contains(key)})
+        schools.removeAll()
         tableView.reloadData()
-    }
-}
-
-extension AdminSchoolController:UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filter(searchText: searchText)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        filter(searchText: "")
+        getData()
     }
 }
 
@@ -82,7 +83,7 @@ extension AdminSchoolController:UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredSchools.count
+        return schools.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -91,18 +92,19 @@ extension AdminSchoolController:UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SchoolCell") as! AdminSchoolCellView
-        cell.setupViews(school: filteredSchools[indexPath.row])
+        cell.setupViews(school: schools[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let picker = pickerDelegate {
             self.dismiss(animated: true, completion: nil)
-            picker.schoolPickerViewDidFinish(school: filteredSchools[indexPath.row])
+            picker.schoolPickerViewDidFinish(school: schools[indexPath.row])
         } else {
             let vc = storyboard?.instantiateViewController(withIdentifier: "SchoolViewController") as! SchoolViewController
-            vc.school = filteredSchools[indexPath.row]
+            vc.school = schools[indexPath.row]
             vc.editingStyle = .update
+            vc.doneBlock = refeshData
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -145,6 +147,12 @@ extension AdminSchoolController:UITableViewDataSource, UITableViewDelegate {
         view.layer.shadowOpacity = 0.6
         view.layer.shadowOffset = CGSize(width: 0 , height:3)
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row > schools.count - 5 {
+            getData()
+        }
     }
     
     @objc func addNewSchool(){

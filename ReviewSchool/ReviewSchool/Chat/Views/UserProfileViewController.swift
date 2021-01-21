@@ -8,6 +8,7 @@
 import UIKit
 
 class UserProfileViewController:BaseViewController, SchoolPickerViewDelegate {
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     

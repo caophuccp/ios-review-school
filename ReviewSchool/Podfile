@@ -9,4 +9,6 @@ target 'ReviewSchool' do
   pod 'Firebase/Auth'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+  pod "RxSwift"
+  pod "RxCocoa"
 end

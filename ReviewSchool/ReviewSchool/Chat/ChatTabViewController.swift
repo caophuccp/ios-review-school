@@ -112,4 +112,8 @@ class ChatTabViewController: UIViewController {
         waitingCollection?.document(currentUser.uid).delete()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        waitingCollection?.document(currentUser.uid).delete()
+    }
 }

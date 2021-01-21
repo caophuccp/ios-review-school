@@ -17,7 +17,6 @@
 		65272CC325B8224D00E599A8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65272CC225B8224D00E599A8 /* Validator.swift */; };
 		65272CC625B839FF00E599A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65272CC525B839FF00E599A8 /* BaseViewController.swift */; };
 		65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65301BA025B4390500707F1B /* FirObjectModel.swift */; };
-		65301BA525B43EC500707F1B /* SchoolPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65301BA425B43EC500707F1B /* SchoolPickerViewController.swift */; };
 		653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACAF25B2CB00000C289A /* RoundTextField.swift */; };
 		653AACB425B2CC1F000C289A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACB325B2CC1F000C289A /* ViewExtension.swift */; };
 		653AACE725B2E1CF000C289A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653AACE625B2E1CF000C289A /* GoogleService-Info.plist */; };
@@ -26,6 +25,7 @@
 		653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */; };
 		653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */; };
 		654DF8AB25B95B210075F7A8 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DF8AA25B95B210075F7A8 /* RatingView.swift */; };
+		656EBB2F25B9C28A002F96EC /* LazyQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EBB2E25B9C28A002F96EC /* LazyQuery.swift */; };
 		657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C293A25B33988001799FB /* UserProfileViewController.swift */; };
 		657C6D1525B404E5008245A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1425B404E5008245A6 /* User.swift */; };
 		657C6D1825B40DBA008245A6 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1725B40DBA008245A6 /* School.swift */; };
@@ -43,7 +43,6 @@
 		65F3645825B869F6009221C6 /* AdminSchoolCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645725B869F6009221C6 /* AdminSchoolCellView.swift */; };
 		65F3645C25B874F5009221C6 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645B25B874F5009221C6 /* SchoolViewController.swift */; };
 		65F3645F25B87D4C009221C6 /* QRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */; };
-		65F3646325B8AF5C009221C6 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646225B8AF5C009221C6 /* MessageInputView.swift */; };
 		65F3646625B8B8AE009221C6 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646525B8B8AE009221C6 /* Review.swift */; };
 		65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F97D4325B329F500F4FDE5 /* NetworkImage.swift */; };
 		AD5E065025B8FA380013E6A9 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD5E064F25B8FA380013E6A9 /* Scan.storyboard */; };
@@ -66,7 +65,6 @@
 		65272CC225B8224D00E599A8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		65272CC525B839FF00E599A8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		65301BA025B4390500707F1B /* FirObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirObjectModel.swift; sourceTree = "<group>"; };
-		65301BA425B43EC500707F1B /* SchoolPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolPickerViewController.swift; sourceTree = "<group>"; };
 		653AACAF25B2CB00000C289A /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		653AACB325B2CC1F000C289A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		653AACE625B2E1CF000C289A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -75,6 +73,7 @@
 		653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		654DF8AA25B95B210075F7A8 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		656EBB2E25B9C28A002F96EC /* LazyQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyQuery.swift; sourceTree = "<group>"; };
 		657C293A25B33988001799FB /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		657C6D1425B404E5008245A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		657C6D1725B40DBA008245A6 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
@@ -92,7 +91,6 @@
 		65F3645725B869F6009221C6 /* AdminSchoolCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSchoolCellView.swift; sourceTree = "<group>"; };
 		65F3645B25B874F5009221C6 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeHelper.swift; sourceTree = "<group>"; };
-		65F3646225B8AF5C009221C6 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		65F3646525B8B8AE009221C6 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		65F97D4325B329F500F4FDE5 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		961201525601E758EF330F0B /* Pods_ReviewSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReviewSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				653AACAF25B2CB00000C289A /* RoundTextField.swift */,
-				65F3646225B8AF5C009221C6 /* MessageInputView.swift */,
 				654DF8AA25B95B210075F7A8 /* RatingView.swift */,
 			);
 			path = Components;
@@ -229,7 +226,6 @@
 			children = (
 				653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */,
 				657C293A25B33988001799FB /* UserProfileViewController.swift */,
-				65301BA425B43EC500707F1B /* SchoolPickerViewController.swift */,
 				659D44BE25B92B0A004CDB47 /* HomeViewController.swift */,
 			);
 			path = Views;
@@ -273,6 +269,7 @@
 				65F97D4325B329F500F4FDE5 /* NetworkImage.swift */,
 				657C7BDC25B57BED00B5F152 /* FirebaseStorage.swift */,
 				65F3645E25B87D4C009221C6 /* QRCodeHelper.swift */,
+				656EBB2E25B9C28A002F96EC /* LazyQuery.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -408,7 +405,6 @@
 			files = (
 				654DF8AB25B95B210075F7A8 /* RatingView.swift in Sources */,
 				653AAD0825B2E338000C289A /* MessageViewCell.swift in Sources */,
-				65F3646325B8AF5C009221C6 /* MessageInputView.swift in Sources */,
 				65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */,
 				65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* SignInViewController.swift in Sources */,
@@ -420,6 +416,7 @@
 				65ABA39C25B94A3400C69625 /* ReviewTableCell.swift in Sources */,
 				657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
+				656EBB2F25B9C28A002F96EC /* LazyQuery.swift in Sources */,
 				657C6D1525B404E5008245A6 /* User.swift in Sources */,
 				65F3645C25B874F5009221C6 /* SchoolViewController.swift in Sources */,
 				653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */,
@@ -430,7 +427,6 @@
 				65F3645325B86766009221C6 /* AdminSchoolController.swift in Sources */,
 				65272CC625B839FF00E599A8 /* BaseViewController.swift in Sources */,
 				65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */,
-				65301BA525B43EC500707F1B /* SchoolPickerViewController.swift in Sources */,
 				65F3644E25B8671B009221C6 /* AdminTabController.swift in Sources */,
 				657C6D1B25B41187008245A6 /* Auth.swift in Sources */,
 				65272CBF25B81A2100E599A8 /* SignUpViewController.swift in Sources */,
