@@ -197,6 +197,7 @@ class ChatRoomViewController: UIViewController {
             message.contentType = .text
             message.ownerID = user.uid
             inputTextView.text = ""
+            inputTVHeightContraint.constant = 40
             isMessageEmpty = true
             sendMessage(message: message)
         }
@@ -286,7 +287,7 @@ extension ChatRoomViewController: UITextViewDelegate {
         let heightConstant = inputTVHeightContraint.constant
         let contentHeight = textView.contentSize.height
         if abs(contentHeight - heightConstant) > 5 && contentHeight < 150 && contentHeight > 40 {
-            inputTVHeightContraint.constant = textView.contentSize.height
+            inputTVHeightContraint.constant = contentHeight
         }
     }
     
@@ -294,6 +295,7 @@ extension ChatRoomViewController: UITextViewDelegate {
         if isMessageEmpty {
             inputTextView.textColor = .darkText
             inputTextView.text = ""
+            inputTVHeightContraint.constant = 40
         }
         
         return true
