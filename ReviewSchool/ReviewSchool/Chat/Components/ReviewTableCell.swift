@@ -10,7 +10,7 @@ import UIKit
 class ReviewTableCell:UITableViewCell {
     @IBOutlet weak var shadowImageView: UIView!
     @IBOutlet weak var reviewImageView: UIImageView!
-    @IBOutlet weak var starStackView: UIStackView!
+    @IBOutlet weak var starStackView: RatingView!
     @IBOutlet weak var userAvatarView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var schoolNameLabel: UILabel!
@@ -35,6 +35,8 @@ class ReviewTableCell:UITableViewCell {
         dateLabel.text = review.dateCreatedString
         userAvatarView.rounded(borderWidth: 0, color: .clear, cornerRadius: 15)
         userAvatarView.contentMode = .scaleAspectFill
+        
+        starStackView.star = review.star
         
         if let url = URL(string: review.image) {
             NetworkImage.shared.download(url: url) { [weak self ](image) in

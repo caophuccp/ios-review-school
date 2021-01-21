@@ -94,16 +94,24 @@ class HomeViewController:BaseViewController {
                     self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 }
             }
+            self?.getAllReviews()
         }
+    }
+    func getAllReviews(){
         ReviewModel.shared.getAll(orderBy: "dateCreated") { [weak self](reviews, error) in
             if let reviews = reviews {
                 self?.reviews = reviews
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    self?.tableView.reloadSections([1], with: .automatic)
                 }
             }
         }
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        getData()
+//    }
     
     func goReviewDetail(review:Review){
         
@@ -140,7 +148,25 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            return headerView
+            let view = UIView()
+            headerView.translatesAutoresizingMaskIntoConstraints = false
+            
+            let sectionHeaderView = sectionHeader(text: "Your Review")
+            sectionHeaderView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(sectionHeaderView)
+            view.addSubview(headerView)
+            NSLayoutConstraint.activate([
+                headerView.topAnchor.constraint(equalTo: view.topAnchor),
+                headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                headerView.heightAnchor.constraint(equalToConstant: 150),
+                
+                sectionHeaderView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+                sectionHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                sectionHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                sectionHeaderView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+            return view
         }
         return sectionHeader(text: "New Review")
     }
@@ -170,7 +196,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 150 : 50
+        return section == 0 ? 200 : 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

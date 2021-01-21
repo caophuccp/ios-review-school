@@ -91,14 +91,38 @@ class ScanViewController : BaseViewController {
     
     @IBAction func ScanButtonOnClick(_ sender: Any) {
         // using camera now, take photo
+        gotoAddReview(qrCode: "reviewapp-schoolid: dXfUW3x9iYauckp6k4Vj")
     }
     
     func gotoAddReview( qrCode: String){
+        
+        if qrCode.hasPrefix("reviewapp-schoolid: ") && qrCode.count > 20 {
+            let id = qrCode.dropFirst(20)
+            disableUserInteraction()
+            SchoolModel.shared.get(documentID: String(id)) { [weak self] (school, error) in
+                if let school = school {
+                    self?.enableUserInteraction()
+                    self?.gotoAddReview(school: school)
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        self?.enableUserInteraction()
+                        self?.alertError(title: "Error", message: error?.localizedDescription ?? "An Unknown Error")
+                    }
+                }
+            }
+        } else {
+            alertError(title: "Error", message: "Invalid QR Code")
+        }
+    }
+    
+    func gotoAddReview(school:School) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddEditReviewViewController")
             as? AddEditReviewViewController else {
             return
         }
-        vc.qrCode = qrCode
+        vc.school = school
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
