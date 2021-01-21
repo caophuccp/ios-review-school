@@ -122,7 +122,11 @@ class HomeViewController:BaseViewController {
     }
     
     func goReviewDetail(review:Review){
-        print(reviews.count)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ReviewDetailViewController") as! ReviewDetailViewController
+        
+        vc.review = review
+        vc.modalPresentationStyle = .formSheet
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -149,7 +153,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.section == 0) {
-            return 280
+            return userReviews.isEmpty ? 0 : 280
         }
         return UITableView.automaticDimension
     }

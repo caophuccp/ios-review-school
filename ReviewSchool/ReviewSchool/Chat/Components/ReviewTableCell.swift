@@ -30,7 +30,6 @@ class ReviewTableCell:UITableViewCell {
         schoolNameLabel.adjustsFontSize(minScale: 0.5)
         
         usernameLabel.text = review.userID
-        schoolNameLabel.text = review.schoolID
         contentReviewLabel.text = review.content
         dateLabel.text = review.dateCreatedString
         userAvatarView.rounded(borderWidth: 0, color: .clear, cornerRadius: 15)

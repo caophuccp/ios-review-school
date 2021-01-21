@@ -69,6 +69,7 @@ class SignInViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        disableUserInteraction()
         auth.checkAuthState {[weak self] user in
             if user != nil {
                 DispatchQueue.main.async {

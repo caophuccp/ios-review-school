@@ -26,6 +26,8 @@
 		653AAD1025B2E3C3000C289A /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */; };
 		654DF8AB25B95B210075F7A8 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654DF8AA25B95B210075F7A8 /* RatingView.swift */; };
 		656EBB2F25B9C28A002F96EC /* LazyQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EBB2E25B9C28A002F96EC /* LazyQuery.swift */; };
+		656EBB3525B9E1D7002F96EC /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EBB3425B9E1D7002F96EC /* ReviewDetailViewController.swift */; };
+		656EBB3925B9ED68002F96EC /* SearchReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EBB3825B9ED68002F96EC /* SearchReviewViewController.swift */; };
 		657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C293A25B33988001799FB /* UserProfileViewController.swift */; };
 		657C6D1525B404E5008245A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1425B404E5008245A6 /* User.swift */; };
 		657C6D1825B40DBA008245A6 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C6D1725B40DBA008245A6 /* School.swift */; };
@@ -74,6 +76,8 @@
 		653AAD0F25B2E3C3000C289A /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		654DF8AA25B95B210075F7A8 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		656EBB2E25B9C28A002F96EC /* LazyQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyQuery.swift; sourceTree = "<group>"; };
+		656EBB3425B9E1D7002F96EC /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
+		656EBB3825B9ED68002F96EC /* SearchReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReviewViewController.swift; sourceTree = "<group>"; };
 		657C293A25B33988001799FB /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		657C6D1425B404E5008245A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		657C6D1725B40DBA008245A6 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
@@ -226,7 +230,10 @@
 			children = (
 				653AAD0B25B2E383000C289A /* ChatRoomViewController.swift */,
 				657C293A25B33988001799FB /* UserProfileViewController.swift */,
+				65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */,
 				659D44BE25B92B0A004CDB47 /* HomeViewController.swift */,
+				656EBB3425B9E1D7002F96EC /* ReviewDetailViewController.swift */,
+				656EBB3825B9ED68002F96EC /* SearchReviewViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,7 +244,6 @@
 				653AAD0A25B2E36D000C289A /* Views */,
 				653AAD0625B2E326000C289A /* Components */,
 				65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */,
-				65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -407,12 +413,14 @@
 				653AAD0825B2E338000C289A /* MessageViewCell.swift in Sources */,
 				65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */,
 				65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */,
+				656EBB3925B9ED68002F96EC /* SearchReviewViewController.swift in Sources */,
 				650ADF2E25B1BF9F00C8442C /* SignInViewController.swift in Sources */,
 				659D44C225B92B2F004CDB47 /* UserReviewCell.swift in Sources */,
 				659D44BF25B92B0A004CDB47 /* HomeViewController.swift in Sources */,
 				65272CC325B8224D00E599A8 /* Validator.swift in Sources */,
 				65F3645825B869F6009221C6 /* AdminSchoolCellView.swift in Sources */,
 				653AACEF25B2E2B9000C289A /* MessageObject.swift in Sources */,
+				656EBB3525B9E1D7002F96EC /* ReviewDetailViewController.swift in Sources */,
 				65ABA39C25B94A3400C69625 /* ReviewTableCell.swift in Sources */,
 				657C7BDD25B57BED00B5F152 /* FirebaseStorage.swift in Sources */,
 				650ADF2A25B1BF9F00C8442C /* AppDelegate.swift in Sources */,
