@@ -15,8 +15,7 @@ class TabBarViewController:UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let tabOne = UIViewController()
-        tabOne.view.backgroundColor = .systemRed
+        let tabOne = UIStoryboard(name: "Scan", bundle: nil).instantiateViewController(withIdentifier: "AddEditReviewViewController")
         let tabOneBarItem = UITabBarItem(title: "Tab1", image: nil, tag: 0)
         
         tabOne.tabBarItem = tabOneBarItem
