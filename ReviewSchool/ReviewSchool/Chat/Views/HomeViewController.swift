@@ -8,7 +8,6 @@
 import UIKit
 
 class HomeViewController:BaseViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     let avatarView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "user"))
@@ -30,6 +29,8 @@ class HomeViewController:BaseViewController {
     
     var userReviews = [Review]()
     var reviews = [Review]()
+    let lazyQuery = LazyQuery<Review>(collection: ReviewModel.shared.collection!, orderBy: "dateCreated", descending: true)
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,17 @@ class HomeViewController:BaseViewController {
         getData()
     }
     
+    @objc func reloadData(_ sender:UIRefreshControl){
+        lazyQuery.reset()
+        reviews.removeAll()
+        tableView.reloadData()
+        getMoreData()
+    }
+    
     func setupViews(){
+        refreshControl.addTarget(self, action: #selector(reloadData), for: UIControl.Event.valueChanged)
+        tableView.refreshControl = refreshControl
+        
         initHeaderView()
         
         usernameLabel.text = user.username
@@ -93,28 +104,25 @@ class HomeViewController:BaseViewController {
                 DispatchQueue.main.async {
                     self?.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 }
+                self?.getMoreData()
             }
-            self?.getAllReviews()
         }
     }
-    func getAllReviews(){
-        ReviewModel.shared.getAll(orderBy: "dateCreated") { [weak self](reviews, error) in
-            if let reviews = reviews {
-                self?.reviews = reviews
+    
+    func getMoreData(){
+        lazyQuery.getDataSync { [weak self](reviews, error) in
+            self?.refreshControl.endRefreshing()
+            if let newReviews = reviews {
+                self?.reviews.append(contentsOf: newReviews)
                 DispatchQueue.main.async {
-                    self?.tableView.reloadSections([1], with: .automatic)
+                    self?.tableView.reloadData()
                 }
             }
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        getData()
-//    }
-    
     func goReviewDetail(review:Review){
-        
+        print(reviews.count)
     }
 }
 
@@ -203,6 +211,12 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: false)
         let review = reviews[indexPath.row]
         goReviewDetail(review: review)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row > 1 && indexPath.row > reviews.count - 5 {
+            getMoreData()
+        }
     }
 }
 
