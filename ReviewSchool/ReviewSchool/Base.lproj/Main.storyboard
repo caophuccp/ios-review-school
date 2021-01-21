@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,17 +14,17 @@
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" id="BYZ-38-t0r" customClass="SignInViewController" customModule="ReviewSchool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDS-xL-SEd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="286.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="112"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" image="logo 1" translatesAutoresizingMaskIntoConstraints="NO" id="eZ3-vF-joj">
-                                        <rect key="frame" x="143" y="66.5" width="128" height="124"/>
+                                        <rect key="frame" x="176" y="10" width="128" height="6"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xq5-3j-0zh">
-                                        <rect key="frame" x="64" y="241.5" width="120" height="30"/>
+                                        <rect key="frame" x="84" y="67" width="120" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="drm-IY-FXu"/>
@@ -35,7 +35,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVz-uq-X79">
-                                        <rect key="frame" x="230" y="241.5" width="120" height="30"/>
+                                        <rect key="frame" x="276" y="67" width="120" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="gaa-t8-b7a"/>
@@ -46,7 +46,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review School" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lji-e4-d3Z">
-                                        <rect key="frame" x="151.5" y="200.5" width="111" height="21"/>
+                                        <rect key="frame" x="184.5" y="26" width="111" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -79,10 +79,10 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35w-ix-8Ge">
-                                <rect key="frame" x="72.5" y="493" width="269" height="147"/>
+                                <rect key="frame" x="84" y="126.5" width="312" height="147"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbv-N8-IKW" customClass="RoundTextField" customModule="ReviewSchool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="269" height="40"/>
+                                        <rect key="frame" x="0.0" y="10" width="312" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Ous-cw-Ehs"/>
                                         </constraints>
@@ -96,7 +96,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-HJ-Xsx" customClass="RoundTextField" customModule="ReviewSchool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="269" height="40"/>
+                                        <rect key="frame" x="0.0" y="70" width="312" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5Zi-RK-ePA"/>
                                         </constraints>
@@ -118,7 +118,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwT-gM-dbZ">
-                                <rect key="frame" x="72.5" y="736" width="269" height="40"/>
+                                <rect key="frame" x="84" y="248" width="312" height="40"/>
                                 <color key="backgroundColor" red="0.5" green="0.8196" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FFq-3E-Zxe"/>
@@ -202,17 +202,17 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" id="1JS-jr-6aT" customClass="SignUpViewController" customModule="ReviewSchool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MLy-Er-aEQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bea-l9-Uvx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="286.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="112"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" image="logo 1" translatesAutoresizingMaskIntoConstraints="NO" id="SCa-1u-xMH">
-                                        <rect key="frame" x="143" y="66.5" width="128" height="124"/>
+                                        <rect key="frame" x="176" y="10" width="128" height="6"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-rS-xTu">
-                                        <rect key="frame" x="64" y="241.5" width="120" height="30"/>
+                                        <rect key="frame" x="84" y="67" width="120" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="QWw-Jj-BeP"/>
@@ -223,7 +223,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dax-Tk-eUi">
-                                        <rect key="frame" x="230" y="241.5" width="120" height="30"/>
+                                        <rect key="frame" x="276" y="67" width="120" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="oFz-3V-Jfg"/>
@@ -234,7 +234,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review School" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSN-rd-E54">
-                                        <rect key="frame" x="151.5" y="200.5" width="111" height="21"/>
+                                        <rect key="frame" x="184.5" y="26" width="111" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -267,10 +267,10 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnq-e8-FF1">
-                                <rect key="frame" x="72.5" y="474" width="269" height="185"/>
+                                <rect key="frame" x="84" y="107.5" width="312" height="185"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUR-Pi-WYz" userLabel="Email Text Field" customClass="RoundTextField" customModule="ReviewSchool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="269" height="40"/>
+                                        <rect key="frame" x="0.0" y="10" width="312" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Boe-S6-Soa"/>
                                         </constraints>
@@ -278,7 +278,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fty-Fg-XWD" userLabel="Username Text Field" customClass="RoundTextField" customModule="ReviewSchool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="269" height="40"/>
+                                        <rect key="frame" x="0.0" y="70" width="312" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ioZ-3X-jO0"/>
                                         </constraints>
@@ -286,7 +286,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wn-M1-mtW" customClass="RoundTextField" customModule="ReviewSchool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="130" width="269" height="40"/>
+                                        <rect key="frame" x="0.0" y="130" width="312" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="KRT-80-kGp"/>
                                         </constraints>
@@ -309,7 +309,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvZ-SX-1aT">
-                                <rect key="frame" x="72.5" y="736" width="269" height="40"/>
+                                <rect key="frame" x="84" y="248" width="312" height="40"/>
                                 <color key="backgroundColor" red="0.5" green="0.8196" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Hq7-Ia-CQt"/>
