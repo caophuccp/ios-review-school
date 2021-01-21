@@ -20,7 +20,7 @@ class HomeViewController:BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSize(minScale: 0.5)
-        label.font = .systemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
     let headerView = UIView()
@@ -60,7 +60,7 @@ class HomeViewController:BaseViewController {
     
     func initHeaderView(){
         let wellcomeLabel = UILabel()
-        wellcomeLabel.text = "wellcome"
+        wellcomeLabel.text = "Wellcome"
         wellcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         headerView.backgroundColor = #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1)
@@ -103,6 +103,10 @@ class HomeViewController:BaseViewController {
                 }
             }
         }
+    }
+    
+    func goReviewDetail(review:Review){
+        
     }
 }
 
@@ -168,6 +172,12 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 150 : 50
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let review = reviews[indexPath.row]
+        goReviewDetail(review: review)
+    }
 }
 
 extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSource {
@@ -183,6 +193,7 @@ extension HomeViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        let review = reviews[indexPath.row]
+        goReviewDetail(review: review)
     }
 }
