@@ -29,7 +29,7 @@ class User: Codable {
         username = "No Name"
         avatar = User.defaultAvatar
         dateCreated = Int(Date().timeIntervalSince1970)
-        chatSchool = "All"
+        chatSchool = "all"
         chatMode = true
         role = .Common
     }
