@@ -25,7 +25,21 @@ class SignInViewController: BaseViewController {
         
         setupViews()
         self.view.hideKeyboardWhenTappedAround()
-        isEditing = false
+//        isEditing = false
+//        
+//        //        https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg
+////        
+//        let schools = ["r7iqoUlxvKQk2Byy6Y1Q",
+//                       "wtPqjht5J4oVn6EqTSpT",
+//                       "dXfUW3x9iYauckp6k4Vj"]
+//        for _ in 1...10 {
+//            let review = Review(userID: "bfZeRPepF8QjmfttLuSrEXgSoq52", schoolID: schools.randomElement()!, star: Int.random(in: 3...5))
+//            review.content = "Môi trường học tập tốt, năng động, tự chủ, chuyên nghiệp."
+////            review.schoolDisplayName = "Trường ĐH"
+//            review.image = "https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg"
+//            ReviewModel.shared.save(review: review, completion: nil)
+//            
+//        }
     }
     
     func setupViews(){
