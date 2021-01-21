@@ -46,6 +46,9 @@
 		65F3646325B8AF5C009221C6 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646225B8AF5C009221C6 /* MessageInputView.swift */; };
 		65F3646625B8B8AE009221C6 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3646525B8B8AE009221C6 /* Review.swift */; };
 		65F97D4425B329F500F4FDE5 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F97D4325B329F500F4FDE5 /* NetworkImage.swift */; };
+		AD5E065025B8FA380013E6A9 /* Scan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD5E064F25B8FA380013E6A9 /* Scan.storyboard */; };
+		AD5E065225B8FAA00013E6A9 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E065125B8FAA00013E6A9 /* ScanViewController.swift */; };
+		AD5E065425B91FCD0013E6A9 /* AddEditReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5E065325B91FCD0013E6A9 /* AddEditReviewViewController.swift */; };
 		C1BC8AC1FCCE92AF3F94E027 /* Pods_ReviewSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961201525601E758EF330F0B /* Pods_ReviewSchool.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +96,9 @@
 		65F3646525B8B8AE009221C6 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		65F97D4325B329F500F4FDE5 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
 		961201525601E758EF330F0B /* Pods_ReviewSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReviewSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD5E064F25B8FA380013E6A9 /* Scan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scan.storyboard; sourceTree = "<group>"; };
+		AD5E065125B8FAA00013E6A9 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		AD5E065325B91FCD0013E6A9 /* AddEditReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditReviewViewController.swift; sourceTree = "<group>"; };
 		EF3581D35E0DA2B38A015B25 /* Pods-ReviewSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewSchool.release.xcconfig"; path = "Target Support Files/Pods-ReviewSchool/Pods-ReviewSchool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,7 @@
 		650ADF2825B1BF9F00C8442C /* ReviewSchool */ = {
 			isa = PBXGroup;
 			children = (
+				AD5E064E25B888790013E6A9 /* Scan */,
 				65F3644925B86032009221C6 /* Admin */,
 				653504B025B819A800B681F2 /* Auth */,
 				65F97D4225B329E500F4FDE5 /* Utils */,
@@ -270,6 +277,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		AD5E064E25B888790013E6A9 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				AD5E064F25B8FA380013E6A9 /* Scan.storyboard */,
+				AD5E065125B8FAA00013E6A9 /* ScanViewController.swift */,
+				AD5E065325B91FCD0013E6A9 /* AddEditReviewViewController.swift */,
+			);
+			name = Scan;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,6 +353,7 @@
 				65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */,
 				65F3644B25B86145009221C6 /* Admin.storyboard in Resources */,
 				650ADF3125B1BF9F00C8442C /* Main.storyboard in Resources */,
+				AD5E065025B8FA380013E6A9 /* Scan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +426,7 @@
 				653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */,
 				657C293B25B33988001799FB /* UserProfileViewController.swift in Sources */,
 				65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */,
+				AD5E065225B8FAA00013E6A9 /* ScanViewController.swift in Sources */,
 				65F3645325B86766009221C6 /* AdminSchoolController.swift in Sources */,
 				65272CC625B839FF00E599A8 /* BaseViewController.swift in Sources */,
 				65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */,
@@ -415,6 +435,7 @@
 				657C6D1B25B41187008245A6 /* Auth.swift in Sources */,
 				65272CBF25B81A2100E599A8 /* SignUpViewController.swift in Sources */,
 				653AAD0C25B2E383000C289A /* ChatRoomViewController.swift in Sources */,
+				AD5E065425B91FCD0013E6A9 /* AddEditReviewViewController.swift in Sources */,
 				65F3645F25B87D4C009221C6 /* QRCodeHelper.swift in Sources */,
 				650ADF2C25B1BF9F00C8442C /* SceneDelegate.swift in Sources */,
 				657C6D1825B40DBA008245A6 /* School.swift in Sources */,
@@ -568,6 +589,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5V42H4R6S5;
 				INFOPLIST_FILE = ReviewSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -588,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5V42H4R6S5;
 				INFOPLIST_FILE = ReviewSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
