@@ -37,14 +37,18 @@ class FirObjectModel<T:Codable> {
         }
     }
     
+    func delete(documentID:String, completion: ((Error?)->())?) {
+        collection?.document(documentID).delete(completion: completion)
+    }
+    
     func addDocument(object:T, completion: ((Error?)->())?) {
         let _ = try? collection?.addDocument(from: object){ (error) in
             completion?(error)
         }
     }
     
-    func addSnapshotListener(_ listener:@escaping FIRQuerySnapshotBlock){
-        collection?.addSnapshotListener(listener)
+    func addSnapshotListener(_ listener:@escaping FIRQuerySnapshotBlock) -> ListenerRegistration? {
+        return collection?.addSnapshotListener(listener)
     }
     
     func updateData(documentID:String, fields:[AnyHashable:Any], completion:((Error?)->Void)?) {

@@ -25,6 +25,21 @@ class SignInViewController: BaseViewController {
         
         setupViews()
         self.view.hideKeyboardWhenTappedAround()
+//        isEditing = false
+//        
+//        //        https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg
+////        
+//        let schools = ["r7iqoUlxvKQk2Byy6Y1Q",
+//                       "wtPqjht5J4oVn6EqTSpT",
+//                       "dXfUW3x9iYauckp6k4Vj"]
+//        for _ in 1...10 {
+//            let review = Review(userID: "bfZeRPepF8QjmfttLuSrEXgSoq52", schoolID: schools.randomElement()!, star: Int.random(in: 3...5))
+//            review.content = "Môi trường học tập tốt, năng động, tự chủ, chuyên nghiệp."
+////            review.schoolDisplayName = "Trường ĐH"
+//            review.image = "https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg"
+//            ReviewModel.shared.save(review: review, completion: nil)
+//            
+//        }
     }
     
     func setupViews(){
@@ -112,14 +127,6 @@ class SignInViewController: BaseViewController {
         }
     }
     
-    func alertError(title:String?, message: String?){
-        if presentedViewController == nil {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     func validate() -> Validator.ValidationError {
         if !Validator.isValid(email: emailTextField.text ?? "") {
             return Validator.ValidationError(error: true, message: "Invalid Email")
@@ -130,9 +137,16 @@ class SignInViewController: BaseViewController {
     func goMain(){
         emailTextField.text = ""
         passwordTextField.text = ""
-        let tab = TabBarViewController()
-        tab.modalPresentationStyle = .fullScreen
-        self.present(tab, animated: true, completion: nil)
+        if User.Role.Admin == auth.currentUser?.role{
+            let tab = UIStoryboard(name: "Admin", bundle: nil).instantiateViewController(withIdentifier: "AdminTabController")
+            tab.modalPresentationStyle = .fullScreen
+            self.present(tab, animated: true, completion: nil)
+        }
+        else {
+            let tab = TabBarViewController()
+            tab.modalPresentationStyle = .fullScreen
+            self.present(tab, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signInSwitchOnClick(_ sender: Any) {

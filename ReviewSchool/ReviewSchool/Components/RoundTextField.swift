@@ -36,6 +36,7 @@ class RoundTextField:UITextField {
     
     func setup(){
 //        self.translatesAutoresizingMaskIntoConstraints = false
+        self.autocorrectionType = .no
         self.borderStyle = .none
         
         self.layer.masksToBounds = true

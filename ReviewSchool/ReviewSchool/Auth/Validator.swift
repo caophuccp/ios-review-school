@@ -8,7 +8,6 @@
 import Foundation
 
 class Validator {
-    
     class ValidationError {
         var error:Bool
         var message:String?

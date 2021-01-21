@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
+class UserProfileViewController:BaseViewController, SchoolPickerViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     
@@ -38,8 +38,6 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
             }
         }
     }
-    
-    let indicatorView = UIActivityIndicatorView.large()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +75,7 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
     }
     
     func setUserData(){
+        enableUserInteraction()
         usernameLabel.text = user?.username
         chatModeSwitch.isOn = user?.chatMode ?? false
         SchoolModel.shared.get(documentID: user?.chatSchool ?? "") { [weak self] (school, error) in
@@ -121,8 +120,8 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
     }
     
     @IBAction func universityButtonClick(_ sender: Any) {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "UniversityPicker") as! SchoolPickerViewController
-        vc.delegate = self
+        let vc = UIStoryboard(name: "Admin", bundle: nil).instantiateViewController(withIdentifier: "AdminSchoolController") as! AdminSchoolController
+        vc.pickerDelegate = self
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -160,16 +159,6 @@ class UserProfileViewController:UIViewController, SchoolPickerViewDelegate {
 }
 
 extension UserProfileViewController {
-    
-    func alertError(title:String?, message: String?){
-        indicatorView.stopAnimating()
-        if presentedViewController == nil {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     func passwordForm(edit: Bool){
         pfvShown = edit
         let newHeight:CGFloat = pfvShown ? 160 : 0
@@ -178,7 +167,7 @@ extension UserProfileViewController {
     }
     
     func changeValidPassword(oldPassword:String, newPassword:String){
-        indicatorView.startAnimating()
+        disableUserInteraction()
         Auth.shared.changePassword(old: oldPassword, new: newPassword) { [weak self](error) in
             if error != nil{
                 DispatchQueue.main.async {
@@ -193,6 +182,7 @@ extension UserProfileViewController {
     }
     
     func changePasswordOnFailure(){
+        enableUserInteraction()
         self.oldPasswordTextField.hasError = true
         self.newPasswordTextField.hasError = true
         self.confirmPasswordTextField.hasError = true
@@ -201,13 +191,14 @@ extension UserProfileViewController {
     }
     
     func changePasswordOnSuccess(){
+        enableUserInteraction()
         self.alertError(title: "Review App", message: "Đổi mật khẩu thành công")
         self.passwordForm(edit: false)
     }
     
     func changeUsername(newUsername: String){
-        indicatorView.startAnimating()
         if let user = user {
+            disableUserInteraction()
             UserModel.shared.updateData(documentID: user.uid, fields: ["username": newUsername]) { [weak self](error) in
                 if error != nil{
                     DispatchQueue.main.async {
@@ -232,6 +223,7 @@ extension UserProfileViewController {
     }
     
     func changeUsernameOnFailure(){
+        enableUserInteraction()
         self.usernameTextField.reset()
         self.alertError(title: "Review App", message: "Đổi tên thất bại!\nVui lòng xem lại thông tin đã nhập")
     }

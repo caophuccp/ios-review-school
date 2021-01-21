@@ -8,20 +8,24 @@
 import Foundation
 import Firebase
 class School: Codable {
+    static let defaultAvatar = "https://firebasestorage.googleapis.com/v0/b/school-review-c1bb6.appspot.com/o/images%2Fschool.png?alt=media&token=09e1d954-8080-4061-a5da-b34d8a84ef01"
     var id:String
     var name:String
     var address:String
+    var avatar:String
     
-    init(name: String, address:String) {
-        self.id = UUID().uuidString
+    init(id: String, name: String, address:String) {
+        self.id = id
         self.name = name
         self.address = address
+        self.avatar = School.defaultAvatar
     }
     
     private enum CodingKeys: String, CodingKey {
         case id
         case name
         case address
+        case avatar
     }
     
     func encode(to encoder: Encoder) throws {
@@ -29,6 +33,7 @@ class School: Codable {
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(address, forKey: .address)
+        try container.encode(avatar, forKey: .avatar)
     }
 
     public required init(from decoder: Decoder) throws {
@@ -36,6 +41,7 @@ class School: Codable {
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
+        avatar = try container.decode(String.self, forKey: .avatar)
     }
 }
 

@@ -15,23 +15,16 @@ class TabBarViewController:UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let tabOne = UIStoryboard(name: "Scan", bundle: nil).instantiateViewController(withIdentifier: "AddEditReviewViewController")
-        let tabOneBarItem = UITabBarItem(title: "Tab1", image: nil, tag: 0)
+        let tabOne = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
+        tabOne.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "chat-icon"), tag: 1)
         
-        tabOne.tabBarItem = tabOneBarItem
+        let chatTab = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatTabView")
+        chatTab.tabBarItem = UITabBarItem(title: "Chat", image: UIImage(named: "chat-icon"), tag: 2)
         
-        
-        // Create Tab two
-        let tabTwo = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatTabView")
-        let tabTwoBarItem2 = UITabBarItem(title: "", image: UIImage(named: "chat-icon"), tag: 1)
-        
-        tabTwo.tabBarItem = tabTwoBarItem2
-        
-        let tab3 = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "UserProfileView")
-        let tabTwoBarItem3 = UITabBarItem(title: "tab3", image: UIImage(named: "chat-icon"), tag: 1)
-        tab3.tabBarItem = tabTwoBarItem3
+        let profileTab = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "UserProfileView")
+        profileTab.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-icon"), tag: 3)
         
         self.tabBar.backgroundColor = #colorLiteral(red: 0.5, green: 0.8196, blue: 1, alpha: 1)
-        self.viewControllers = [tabTwo, tabOne, tab3]
+        self.viewControllers = [tabOne, chatTab, profileTab]
     }
 }

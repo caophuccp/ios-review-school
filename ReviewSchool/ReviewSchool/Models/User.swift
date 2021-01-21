@@ -9,6 +9,11 @@ import Foundation
 import Firebase
 
 class User: Codable {
+    enum Role:Int{
+        case Admin = 0
+        case Common = 1
+    }
+    
     static let defaultAvatar = "https://firebasestorage.googleapis.com/v0/b/school-review-c1bb6.appspot.com/o/images%2Fuser.png?alt=media&token=4ae68768-1018-422b-aa1b-a7f1d59dab49"
     var uid:String
     var email:String?
@@ -17,6 +22,7 @@ class User: Codable {
     var dateCreated: Int
     var chatSchool:String
     var chatMode:Bool
+    var role:Role
     
     init() {
         uid = UUID().uuidString
@@ -25,6 +31,7 @@ class User: Codable {
         dateCreated = Int(Date().timeIntervalSince1970)
         chatSchool = "All"
         chatMode = true
+        role = .Common
     }
     
     init(uid:String, email:String?, username:String, avatar:String, dateCreated:Int, chatSchool:String, chatMode:Bool) {
@@ -35,6 +42,7 @@ class User: Codable {
         self.dateCreated = dateCreated
         self.chatSchool = chatSchool
         self.chatMode = chatMode
+        self.role = .Common
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -45,6 +53,7 @@ class User: Codable {
         case dateCreated
         case chatSchool
         case chatMode
+        case role
     }
     
     func encode(to encoder: Encoder) throws {
@@ -56,6 +65,7 @@ class User: Codable {
         try container.encode(dateCreated, forKey: .dateCreated)
         try container.encode(chatSchool, forKey: .chatSchool)
         try container.encode(chatMode, forKey: .chatMode)
+        try container.encode(role.rawValue, forKey: .role)
     }
 
     public required init(from decoder: Decoder) throws {
@@ -67,12 +77,14 @@ class User: Codable {
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
         chatSchool = try container.decode(String.self, forKey: .chatSchool)
         chatMode = try container.decode(Bool.self, forKey: .chatMode)
+        let rawRole = try container.decode(Int.self, forKey: .role)
+        role = Role(rawValue: rawRole) ?? .Common
     }
     
-    func copy() -> User{
-        let copiedUser = User(uid: uid, email: email, username: username, avatar: avatar, dateCreated: dateCreated, chatSchool: chatSchool, chatMode: chatMode)
-        return copiedUser
-    }
+//    func copy() -> User{
+//        let copiedUser = User(uid: uid, email: email, username: username, avatar: avatar, dateCreated: dateCreated, chatSchool: chatSchool, chatMode: chatMode)
+//        return copiedUser
+//    }
 }
 
 class UserModel:FirObjectModel<User> {

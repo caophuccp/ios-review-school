@@ -7,11 +7,19 @@
 
 import UIKit
 
+extension UILabel {
+    func adjustsFontSize(minScale:CGFloat){
+        self.numberOfLines = 1
+        self.minimumScaleFactor = minScale
+        self.adjustsFontSizeToFitWidth = true
+    }
+}
+
 extension UIView {
     func rounded(borderWidth: CGFloat, color:UIColor, cornerRadius:CGFloat) {
         self.layer.masksToBounds = true
         self.layer.borderColor = color.cgColor
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = borderWidth
         self.layer.cornerRadius = cornerRadius
     }
     
