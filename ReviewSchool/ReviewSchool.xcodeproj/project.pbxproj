@@ -17,6 +17,7 @@
 		65272CBF25B81A2100E599A8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65272CBE25B81A2100E599A8 /* SignUpViewController.swift */; };
 		65272CC325B8224D00E599A8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65272CC225B8224D00E599A8 /* Validator.swift */; };
 		65272CC625B839FF00E599A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65272CC525B839FF00E599A8 /* BaseViewController.swift */; };
+		65296BC125BA81310092D7FA /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65296BC325BA81310092D7FA /* Chat.storyboard */; };
 		65301BA125B4390500707F1B /* FirObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65301BA025B4390500707F1B /* FirObjectModel.swift */; };
 		653AACB025B2CB00000C289A /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACAF25B2CB00000C289A /* RoundTextField.swift */; };
 		653AACB425B2CC1F000C289A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AACB325B2CC1F000C289A /* ViewExtension.swift */; };
@@ -36,7 +37,6 @@
 		659D44BF25B92B0A004CDB47 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D44BE25B92B0A004CDB47 /* HomeViewController.swift */; };
 		659D44C225B92B2F004CDB47 /* UserReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D44C125B92B2F004CDB47 /* UserReviewCell.swift */; };
 		65ABA39C25B94A3400C69625 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ABA39B25B94A3400C69625 /* ReviewTableCell.swift */; };
-		65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */; };
 		65D0AF8F25B2897A00FA1E81 /* ChatTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */; };
 		65D0AF9625B2905E00FA1E81 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */; };
 		65F3644B25B86145009221C6 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F3644A25B86145009221C6 /* Admin.storyboard */; };
@@ -67,6 +67,9 @@
 		65272CBE25B81A2100E599A8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		65272CC225B8224D00E599A8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		65272CC525B839FF00E599A8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		65296BBF25BA81220092D7FA /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
+		65296BC025BA81220092D7FA /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		65296BC225BA81310092D7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		65301BA025B4390500707F1B /* FirObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirObjectModel.swift; sourceTree = "<group>"; };
 		653AACAF25B2CB00000C289A /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		653AACB325B2CC1F000C289A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -86,7 +89,6 @@
 		659D44BE25B92B0A004CDB47 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		659D44C125B92B2F004CDB47 /* UserReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewCell.swift; sourceTree = "<group>"; };
 		65ABA39B25B94A3400C69625 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
-		65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		65D0AF8E25B2897A00FA1E81 /* ChatTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabViewController.swift; sourceTree = "<group>"; };
 		65D0AF9525B2905E00FA1E81 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		65F3644A25B86145009221C6 /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
@@ -243,7 +245,7 @@
 			children = (
 				653AAD0A25B2E36D000C289A /* Views */,
 				653AAD0625B2E326000C289A /* Components */,
-				65D0AF8B25B2884C00FA1E81 /* Chat.storyboard */,
+				65296BC325BA81310092D7FA /* Chat.storyboard */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -334,6 +336,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 650ADF1D25B1BF9F00C8442C;
 			productRefGroup = 650ADF2725B1BF9F00C8442C /* Products */;
@@ -352,7 +355,7 @@
 			files = (
 				650ADF3625B1BFA000C8442C /* LaunchScreen.storyboard in Resources */,
 				650ADF3325B1BFA000C8442C /* Assets.xcassets in Resources */,
-				65D0AF8C25B2884C00FA1E81 /* Chat.storyboard in Resources */,
+				65296BC125BA81310092D7FA /* Chat.storyboard in Resources */,
 				65F3644B25B86145009221C6 /* Admin.storyboard in Resources */,
 				650ADF3125B1BF9F00C8442C /* Main.storyboard in Resources */,
 				AD5E065025B8FA380013E6A9 /* Scan.storyboard in Resources */,
@@ -455,6 +458,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				650ADF3025B1BF9F00C8442C /* Base */,
+				65296BBF25BA81220092D7FA /* vi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -463,8 +467,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				650ADF3525B1BFA000C8442C /* Base */,
+				65296BC025BA81220092D7FA /* vi */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		65296BC325BA81310092D7FA /* Chat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65296BC225BA81310092D7FA /* Base */,
+			);
+			name = Chat.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -474,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -535,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

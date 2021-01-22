@@ -85,6 +85,14 @@ class SearchReviewViewController:UIViewController {
             }
         }
     }
+    
+    func goReviewDetail(review:Review){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ReviewDetailViewController") as! ReviewDetailViewController
+        
+        vc.review = review
+        vc.modalPresentationStyle = .formSheet
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension SearchReviewViewController:UITableViewDelegate, UITableViewDataSource {
@@ -102,5 +110,11 @@ extension SearchReviewViewController:UITableViewDelegate, UITableViewDataSource 
         let review = reviews[indexPath.row]
         cell.setupViews(review: review)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let review = reviews[indexPath.row]
+        goReviewDetail(review: review)
     }
 }

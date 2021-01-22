@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "2FR-Gz-gfV"; */
+"2FR-Gz-gfV.text" = "Name";
+
+/* Class = "UILabel"; text = "01/01/1999"; ObjectID = "4GA-AL-f0t"; */
+"4GA-AL-f0t.text" = "01/01/1999";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "4Xn-fU-HmB"; */
+"4Xn-fU-HmB.text" = "Name";
+
+/* Class = "UILabel"; text = "Cập nhật"; ObjectID = "4iT-SU-1nr"; */
+"4iT-SU-1nr.text" = "Cập nhật";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5su-GA-MQ1"; */
+"5su-GA-MQ1.text" = "Label";
+
+/* Class = "UITextView"; text = "Bạn muốn tìm hiểu về trường?\nBạn muốn chia sẻ về trường?\nHãy tham gia chat"; ObjectID = "6Cj-jr-hq8"; */
+"6Cj-jr-hq8.text" = "Bạn muốn tìm hiểu về trường?\nBạn muốn chia sẻ về trường?\nHãy tham gia chat";
+
+/* Class = "UILabel"; text = "Nhắn tin với người lạ"; ObjectID = "6eb-bZ-fL0"; */
+"6eb-bZ-fL0.text" = "Nhắn tin với người lạ";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "8Rh-uX-SX3"; */
+"8Rh-uX-SX3.text" = "Name";
+
+/* Class = "UILabel"; text = "Cài đặt"; ObjectID = "9W5-DV-yZB"; */
+"9W5-DV-yZB.text" = "Cài đặt";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Bnb-jh-H12"; */
+"Bnb-jh-H12.placeholder" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "C8B-U1-kdW"; */
+"C8B-U1-kdW.normalTitle" = "Back";
+
+/* Class = "UIButton"; normalTitle = "Đổi mật khẩu"; ObjectID = "Cv4-OJ-0Az"; */
+"Cv4-OJ-0Az.normalTitle" = "Đổi mật khẩu";
+
+/* Class = "UIButton"; normalTitle = "Đăng xuất"; ObjectID = "Fdn-55-Vfu"; */
+"Fdn-55-Vfu.normalTitle" = "Đăng xuất";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HTM-5Q-vGL"; */
+"HTM-5Q-vGL.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LAY-oo-ETI"; */
+"LAY-oo-ETI.text" = "Label";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Lvm-x3-d0O"; */
+"Lvm-x3-d0O.text" = "Name";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "NKB-vg-qhm"; */
+"NKB-vg-qhm.placeholder" = "Confirm Password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PKR-3d-6gu"; */
+"PKR-3d-6gu.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Old Password"; ObjectID = "PWp-s1-aJO"; */
+"PWp-s1-aJO.placeholder" = "Old Password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Q8y-zF-4tY"; */
+"Q8y-zF-4tY.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ajR-Wg-xoB"; */
+"ajR-Wg-xoB.text" = "Label";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "awB-uX-3q5"; */
+"awB-uX-3q5.text" = "Name";
+
+/* Class = "UILabel"; text = "Header"; ObjectID = "cFU-49-cvb"; */
+"cFU-49-cvb.text" = "Header";
+
+/* Class = "UIButton"; normalTitle = "Vào chat ngay"; ObjectID = "dsi-G8-xGf"; */
+"dsi-G8-xGf.normalTitle" = "Vào chat ngay";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "i6E-QK-50W"; */
+"i6E-QK-50W.text" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "iT4-cd-ddS"; */
+"iT4-cd-ddS.normalTitle" = "Back";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "iqu-3w-ou2"; */
+"iqu-3w-ou2.text" = "Label";
+
+/* Class = "UILabel"; text = "Header"; ObjectID = "ivO-Gd-bws"; */
+"ivO-Gd-bws.text" = "Header";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "lb5-NG-3Kw"; */
+"lb5-NG-3Kw.placeholder" = "New Password";
+
+/* Class = "UIButton"; normalTitle = "Trường đại học"; ObjectID = "lwI-Ly-VW1"; */
+"lwI-Ly-VW1.normalTitle" = "Trường đại học";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mb0-iH-0hl"; */
+"mb0-iH-0hl.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Search"; ObjectID = "obc-Is-ccp"; */
+"obc-Is-ccp.placeholder" = "Search";
+
+/* Class = "UILabel"; text = "Trường bạn muốn chia sẻ"; ObjectID = "rNm-4J-XPh"; */
+"rNm-4J-XPh.text" = "Trường bạn muốn chia sẻ";
+
+/* Class = "UIButton"; normalTitle = "Đổi tên"; ObjectID = "ySC-QL-icp"; */
+"ySC-QL-icp.normalTitle" = "Đổi tên";
