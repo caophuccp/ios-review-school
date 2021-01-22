@@ -1,0 +1,42 @@
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "4eo-HJ-Xsx"; */
+"4eo-HJ-Xsx.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "6Wn-M1-mtW"; */
+"6Wn-M1-mtW.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "AoJ-rS-xTu"; */
+"AoJ-rS-xTu.normalTitle" = "Sign In";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Fty-Fg-XWD"; */
+"Fty-Fg-XWD.placeholder" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Đăng ký"; ObjectID = "FvZ-SX-1aT"; */
+"FvZ-SX-1aT.normalTitle" = "Đăng ký";
+
+/* Class = "UILabel"; text = "Review School"; ObjectID = "Lji-e4-d3Z"; */
+"Lji-e4-d3Z.text" = "Review School";
+
+/* Class = "UIButton"; normalTitle = "Đăng nhập"; ObjectID = "OwT-gM-dbZ"; */
+"OwT-gM-dbZ.normalTitle" = "Đăng nhập";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "Xq5-3j-0zh"; */
+"Xq5-3j-0zh.normalTitle" = "Sign In";
+
+/* Class = "UILabel"; text = "Forgot password?"; ObjectID = "ao9-1o-wW1"; */
+"ao9-1o-wW1.text" = "Forgot password?";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "dax-Tk-eUi"; */
+"dax-Tk-eUi.normalTitle" = "Sign Up";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "gUR-Pi-WYz"; */
+"gUR-Pi-WYz.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "iVz-uq-X79"; */
+"iVz-uq-X79.normalTitle" = "Sign Up";
+
+/* Class = "UILabel"; text = "Review School"; ObjectID = "pSN-rd-E54"; */
+"pSN-rd-E54.text" = "Review School";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "zbv-N8-IKW"; */
+"zbv-N8-IKW.placeholder" = "Email";

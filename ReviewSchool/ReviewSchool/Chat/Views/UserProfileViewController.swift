@@ -235,7 +235,7 @@ extension UserProfileViewController {
         self.oldPasswordTextField.reset()
         self.newPasswordTextField.reset()
         self.confirmPasswordTextField.reset()
-        self.passwordForm(edit: false)
+        self.usernameTextField(edit: false)
         reloadUser()
     }
     
