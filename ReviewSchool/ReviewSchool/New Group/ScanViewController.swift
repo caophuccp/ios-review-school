@@ -91,7 +91,10 @@ class ScanViewController : BaseViewController {
     
     @IBAction func ScanButtonOnClick(_ sender: Any) {
         // using camera now, take photo
-        gotoAddReview(qrCode: "reviewapp-schoolid: dXfUW3x9iYauckp6k4Vj")
+//        gotoAddReview(qrCode: "reviewapp-schoolid: dXfUW3x9iYauckp6k4Vj")
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     func gotoAddReview( qrCode: String){

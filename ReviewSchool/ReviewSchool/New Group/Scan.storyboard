@@ -19,8 +19,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF2-LP-vgX" userLabel="Scan Camera">
                                 <rect key="frame" x="103.5" y="109" width="207" height="207"/>
-                                <color key="backgroundColor" red="0.49972586866603141" green="0.77981159030644187" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr-code-scan" translatesAutoresizingMaskIntoConstraints="NO" id="arb-zg-f3F">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="arb-zg-f3F" firstAttribute="top" secondItem="FF2-LP-vgX" secondAttribute="top" id="DxT-ls-HSe"/>
+                                    <constraint firstAttribute="bottom" secondItem="arb-zg-f3F" secondAttribute="bottom" id="LN4-B5-QMd"/>
+                                    <constraint firstAttribute="trailing" secondItem="arb-zg-f3F" secondAttribute="trailing" id="SFl-zl-BQ2"/>
+                                    <constraint firstItem="arb-zg-f3F" firstAttribute="leading" secondItem="FF2-LP-vgX" secondAttribute="leading" id="VWD-l7-A63"/>
                                     <constraint firstAttribute="width" secondItem="FF2-LP-vgX" secondAttribute="height" multiplier="1:1" id="w1V-7j-RpS"/>
                                 </constraints>
                             </view>
@@ -324,6 +332,7 @@
     </scenes>
     <resources>
         <image name="backward-arrow" width="32" height="32"/>
+        <image name="qr-code-scan" width="512" height="512"/>
         <image name="school" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
