@@ -74,6 +74,8 @@ class Auth {
                 self?.currentUser = user
                 completion?(user)
             }
+        } else {
+            completion?(nil)
         }
     }
     
